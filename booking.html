@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking | TARIN WELLNESS</title>
+<meta name="description" content="TARIN WELLNESS 개인 세션과 4주 소그룹 프로그램 예약 신청 및 사전 설문.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="booking.html">
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap"><p class="eyebrow">Booking</p><h1>예약 신청</h1>
+    <p class="lead">필요한 정보만 받아요. 신청 후 운영자가 확인하고 연락드려요.</p></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:720px">
+
+      <p class="notice"><b>미리보기 안내</b> 지금은 1단계 화면이라 입력한 내용이 어디로도 전송되지 않아요. 실제 접수와 결제는 다음 단계에서 연결해요.</p>
+
+      <form id="booking-form" novalidate style="margin-top:28px">
+        <h2>1. 예약 정보</h2>
+        <div class="field"><label for="name">이름 *</label><input type="text" id="name" autocomplete="name"><div class="err" id="name-err"></div></div>
+        <div class="field"><label for="contact">연락처 (이메일 또는 전화번호) *</label><input type="text" id="contact" autocomplete="email"><div class="err" id="contact-err"></div></div>
+        <div class="field"><label for="service">서비스 *</label>
+          <select id="service"><option value="">선택해 주세요</option><option value="session">개인 세션 (1:1)</option><option value="group">4주 소그룹 프로그램</option></select>
+          <div class="hint" id="service-hint"></div><div class="err" id="service-err"></div></div>
+        <fieldset><legend>진행 방식 *</legend>
+          <label class="choice"><input type="radio" name="mode" value="online"> 온라인</label>
+          <label class="choice"><input type="radio" name="mode" value="offline"> 오프라인</label>
+          <div class="err" id="mode-err"></div></fieldset>
+        <div class="field"><label for="date">희망 날짜 (선택)</label><input type="date" id="date"><div class="hint">정확한 시간은 확인 후 함께 정해요.</div></div>
+
+        <h2 style="margin-top:36px">2. 사전 설문</h2>
+        <p class="hint">모두 선택 항목이에요. 쓰고 싶은 만큼만 적어 주세요.</p>
+        <div class="field"><label for="area">요즘 신경 쓰이는 부위</label><input type="text" id="area" placeholder="예: 목, 어깨, 허리"></div>
+        <div class="field"><label for="tension">지금 느끼는 신체 긴장도: <span class="range-val" id="tension-out">5</span> / 10</label>
+          <input type="range" id="tension" min="0" max="10" value="5"><div class="hint">0은 매우 편안함, 10은 매우 긴장됨 (나의 느낌 기준이에요)</div></div>
+        <div class="field"><label for="expect">기대하는 점</label><textarea id="expect" rows="3"></textarea></div>
+        <div class="field"><label for="notes">미리 알려 주고 싶은 점</label><textarea id="notes" rows="3"></textarea>
+          <div class="hint">의료적 진단 내용이나 민감한 개인정보는 적지 않아도 돼요. 걱정되는 건강 상태는 참여 전에 의료 전문가와 상의해 주세요.</div></div>
+
+        <h2 style="margin-top:36px">3. 결제·취소 안내</h2>
+        <div class="notice">
+          <p style="margin:0 0 8px"><b>결제</b> 결제 방법은 예약 확인 후 안내드려요. (결제 연동은 다음 단계에서 추가돼요.)</p>
+          <p style="margin:0"><b>취소·환불</b> 정책은 확정되면 이곳에 안내할게요. (준비 중)</p>
+        </div>
+
+        <h2 style="margin-top:36px">4. 개인정보 동의</h2>
+        <div class="field">
+          <label class="choice"><input type="checkbox" id="agree"> 예약 확인과 사전 안내를 위해 이름과 연락처, 설문 내용을 수집·이용하는 데 동의합니다. *</label>
+          <div class="hint">수집 항목: 이름, 연락처, 설문 응답 / 목적: 예약 확인과 세션 준비 / 보관 기간: (확정 후 기재)</div>
+          <div class="err" id="agree-err"></div>
+        </div>
+
+        <button class="btn" type="submit">예약 신청하기</button>
+      </form>
+
+      <div class="confirm card" id="confirm" role="status">
+        <h2>신청 내용을 확인했어요</h2>
+        <p class="lead">미리보기 화면이라 실제로 전송되지는 않았어요.</p>
+        <dl>
+          <dt>이름</dt><dd id="c-name"></dd>
+          <dt>서비스</dt><dd id="c-service"></dd>
+          <dt>진행 방식</dt><dd id="c-mode"></dd>
+          <dt>희망 날짜</dt><dd id="c-date"></dd>
+        </dl>
+        <a class="btn ghost" href="index.html">홈으로</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+<script src="main.js"></script>
+<script>
+  // 서비스 페이지의 버튼에서 넘어오면 서비스를 미리 선택해 줘요 (?service=session)
+  const pre = new URLSearchParams(location.search).get("service");
+  if (pre === "session" || pre === "group") {
+    const s = document.getElementById("service");
+    s.value = pre; s.dispatchEvent(new Event("change"));
+  }
+</script>
+</body>
+</html>
