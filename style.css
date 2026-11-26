@@ -1,6 +1,6 @@
 /* TARIN WELLNESS - The Living Flow
    색을 바꾸고 싶다면 아래 :root 안의 값만 고치세요. */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&display=swap");
 
 :root {
   --sage: #b9cdb9;        /* Pale Sage */
@@ -77,8 +77,9 @@ h3 { font-size: 1.4rem; }
 }
 .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(180deg, transparent, var(--ivory)); pointer-events: none; }
 .hero .wrap { position: relative; z-index: 1; padding-top: 60px; padding-bottom: 100px; }
-.hero h1 { max-width: 560px; }
-.hero p.lead { margin: 22px 0 36px; color: #43524e; }
+.hero h1 { max-width: 620px; font-weight: 700; color: #1f2d2a; text-shadow: 0 0 24px rgba(248,245,236,.9), 0 0 6px rgba(248,245,236,.7); }
+.hero .eyebrow { font-weight: 700; color: #2f5a52; }
+.hero p.lead { margin: 22px 0 36px; color: #24322f; font-weight: 500; font-size: 1.12rem; text-shadow: 0 0 14px rgba(248,245,236,.95); }
 .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* 서브 페이지 상단: 같은 이미지를 다른 부분으로 잘라 써서 이어지는 느낌 */

@@ -35,7 +35,7 @@ const footer = `
   <div class="cols">
     <div><h4>TARIN WELLNESS</h4><p>Bringing People Back Home.<br>자신의 몸과 마음으로 돌아오는 여정.</p></div>
     <div><h4>Menu</h4><ul>${PAGES.map(([h, n]) => `<li><a href="${h}">${n}</a></li>`).join("")}<li><a href="booking.html">Booking</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li>이메일: (준비 중)</li><li>인스타그램: (준비 중)</li></ul></div>
+    <div><h4>Contact</h4><ul><li>전화: <a href="tel:01058633347">010-5863-3347</a></li><li>이메일: <a href="mailto:tarinwellness@gmail.com">tarinwellness@gmail.com</a></li><li>인스타그램: (준비 중)</li></ul></div>
   </div>
   <p class="disclaimer">본 프로그램은 웰니스 교육 서비스이며 의료적 진단·치료를 대체하지 않습니다. 질환이나 통증이 있다면 먼저 의료 전문가와 상담하세요.<br>© 2026 TARIN WELLNESS</p>
 </div></footer>`;
