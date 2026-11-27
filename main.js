@@ -9,6 +9,7 @@ const PAGES = [
   ["method.html", "Our Method"],
   ["services.html", "Services"],
   ["journal.html", "Journal"],
+  ["cards.html", "Cards"],
 ];
 
 const FEATHER = `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">

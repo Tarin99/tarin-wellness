@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TARIN WELLNESS · 감정 탐색 카드 392</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+KR:wght@300;400&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe6; --ink:#34322f; --paper:#fbf7ee; --gold:#c0a46e;
+  --serif-ko:"Noto Serif KR","Noto Serif CJK KR","Nanum Myeongjo","AppleMyungjo","Batang",serif;
+  --serif-en:"Cormorant Garamond","Garamond","Times New Roman",serif;
+  --sans-ko:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --hanji:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400'><filter id='a' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.01 .4' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 .66 0 0 0 0 .58 0 0 0 0 .46 1.2 0 0 0 -.52'/></filter><filter id='b' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .38 1 0 0 0 -.4'/></filter><rect width='300' height='400' filter='url(%23a)' opacity='.22'/><rect width='300' height='400' filter='url(%23b)' opacity='.22'/></svg>");
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans-ko);font-weight:300;-webkit-font-smoothing:antialiased}
+header{padding:44px 20px 14px;text-align:center}
+header .brand{font:400 30px var(--serif-en);letter-spacing:.42em;padding-left:.42em;color:#4f5d62}
+header .sub{margin-top:10px;font:300 13px var(--serif-en);letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:#8b8579}
+header .sig{margin-top:14px;font:italic 300 19px var(--serif-en);color:#8a7c60;letter-spacing:.05em}
+header small{display:block;margin-top:12px;font-size:12px;color:#9a948a}
+.bar{position:sticky;top:0;z-index:5;background:rgba(244,239,230,.95);backdrop-filter:blur(6px);padding:12px 16px 10px;border-bottom:1px solid #e0d8ca}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:1100px;margin:0 auto}
+.chip{display:flex;align-items:center;gap:6px;border:1px solid #ddd4c4;background:#fbf7ee;border-radius:999px;padding:5px 11px 5px 7px;font:400 12px var(--sans-ko);color:var(--ink);cursor:pointer}
+.chip i{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.18)}
+.chip[aria-pressed="true"]{background:#4f5d62;color:#fff;border-color:#4f5d62}
+.tools{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:10px}
+.tools input{width:min(260px,70vw);padding:8px 12px;border:1px solid #ddd4c4;border-radius:10px;font:300 14px var(--sans-ko);background:#fbf7ee}
+.btn{border:0;background:#4f5d62;color:#fff;border-radius:10px;padding:9px 14px;font:400 13px var(--sans-ko);cursor:pointer}
+.btn.alt{background:#fbf7ee;color:var(--ink);border:1px solid #ddd4c4}
+.count{font-size:13px;color:#9a948a}
+main{padding:22px 12px 70px;display:flex;flex-wrap:wrap;gap:28px;justify-content:center;max-width:1300px;margin:0 auto}
+.sectionTitle{flex:0 0 100%;display:flex;align-items:center;gap:10px;font:400 21px var(--serif-en);letter-spacing:.2em;margin:16px 4px 0;color:#4f5d62}
+.sectionTitle i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.2)}
+.sectionTitle small{font:300 13px var(--sans-ko);color:#9a948a;letter-spacing:0}
+
+/* ---- 카드: 가로 7cm x 세로 9cm ---- */
+.card{width:7cm;height:9cm;perspective:1400px;cursor:pointer;flex:0 0 auto;border:0;background:none;padding:0;font:inherit;color:inherit;text-align:center}
+.card:focus-visible{outline:3px solid #8aa6b4;outline-offset:4px;border-radius:14px}
+.inner{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.card.flip .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:.45cm;border:.14cm solid var(--c);background:var(--hanji),var(--paper);background-size:100% 100%,auto;box-shadow:0 10px 24px rgba(90,70,40,.15);overflow:hidden}
+.card.white .face{box-shadow:0 0 0 1px #d6cfc2,0 10px 24px rgba(90,70,40,.13)}
+.back{transform:rotateY(180deg)}
+.art{position:absolute;inset:0}
+.art svg{width:100%;height:100%;display:block}
+.topstar{position:absolute;left:50%;top:.78cm;transform:translateX(-50%);width:.55cm;height:.55cm}
+.txt{position:absolute;left:0;right:0;top:61%;height:24%;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding:0 .6cm}
+.ko{font-family:var(--serif-ko);font-weight:500;letter-spacing:.02em;line-height:1.35;color:#2f2d2b;word-break:keep-all;text-wrap:balance}
+.en{font:400 10.5px var(--serif-en);letter-spacing:.4em;text-transform:uppercase;color:#6d675f;margin-top:.26cm;padding-left:.4em}
+.num{position:absolute;left:0;right:0;bottom:.24cm;font:400 8.5px var(--serif-en);letter-spacing:.28em;color:#a39a88;z-index:2}
+/* 뒷면 */
+.bstar{position:absolute;left:50%;top:.78cm;transform:translateX(-50%);width:.55cm;height:.55cm}
+.bcont{position:absolute;inset:1.55cm .6cm 1.62cm;display:flex;flex-direction:column;align-items:center;text-align:center}
+.bcont .en2{font:400 12px var(--serif-en);letter-spacing:.34em;text-transform:uppercase;color:#6d675f;padding-left:.34em}
+.bcont .mean{font:italic 300 13px var(--serif-ko);font-style:normal;color:#7a735f;margin-top:.22cm;word-break:keep-all}
+.bcont .desc{font:300 11.5px/1.75 var(--sans-ko);margin-top:.3cm;color:#3b3935;word-break:keep-all}
+.bcont .rule{width:62%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.4cm 0 .3cm;flex:0 0 auto}
+.bcont .lab{font:400 11px var(--serif-ko);color:#9a8760;letter-spacing:.12em}
+.bcont .q{font:300 11.5px/1.75 var(--sans-ko);margin-top:.15cm;color:#3b3935;word-break:keep-all}
+.bsprig{position:absolute;left:50%;bottom:.6cm;transform:translateX(-50%);width:1.4cm;height:.75cm}
+dialog{border:0;border-radius:18px;padding:22px;background:var(--bg);max-width:96vw}
+dialog::backdrop{background:rgba(30,26,20,.5)}
+dialog .row{display:flex;gap:10px;justify-content:center;margin-top:14px}
+.zoomwrap{display:flex;justify-content:center}
+.zoomwrap .card{zoom:1.35}
+.empty{padding:60px 0;color:#9a948a}
+
+/* ---- 인쇄: A4 가로, 한 장에 8장(4열 x 2행) ---- */
+@media print{
+  @page{size:A4 landscape;margin:.5cm}
+  body{background:#fff}
+  header,.bar,dialog,.sectionTitle{display:none!important}
+  main{display:grid;grid-template-columns:repeat(4,7cm);grid-auto-rows:9cm;gap:0;justify-content:center;padding:0;max-width:none}
+  .card{break-inside:avoid;perspective:none}
+  .inner{transition:none;transform:none!important}
+  .back{display:none}
+  .face{box-shadow:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card.white .face{box-shadow:0 0 0 1px #bbb!important}
+  .art svg{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="wc0" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="3" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/><feGaussianBlur stdDeviation=".9"/></filter>
+  <filter id="wc1" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".038" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="11"/><feGaussianBlur stdDeviation="1"/></filter>
+  <filter id="wc2" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="8"/><feGaussianBlur stdDeviation=".8"/></filter>
+  <filter id="wc3" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".026" numOctaves="4" seed="19" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="12"/><feGaussianBlur stdDeviation="1.1"/></filter>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5"/></filter>
+  <radialGradient id="tg" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fbf7ee" stop-opacity=".75"/><stop offset="1" stop-color="#fbf7ee" stop-opacity="0"/></radialGradient>
+  <radialGradient id="vig" cx=".5" cy=".4" r=".62"><stop offset=".55" stop-color="#fbf7ee" stop-opacity="0"/><stop offset="1" stop-color="#fbf7ee" stop-opacity=".9"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6d1a0"/><stop offset="1" stop-color="#b99a5c"/></linearGradient>
+</defs></svg>
+
+<header>
+  <div class="brand">TARIN WELLNESS</div>
+  <div class="sub">392 Emotional Exploration Cards</div>
+  <div class="sig">Bringing People Back Home</div>
+  <small>카드를 누르면 뒤집혀서 설명과 탐색 질문이 보여요 · 테두리 색은 14개 그룹을 은은하게 나타내요</small>
+</header>
+<div class="bar">
+  <div class="chips" id="chips"></div>
+  <div class="tools">
+    <input id="q" type="search" placeholder="한글 또는 영어로 찾기 (예: 불안, lonely)" aria-label="카드 검색">
+    <button class="btn" id="rand">랜덤 카드 뽑기</button>
+    <button class="btn alt" id="allFlip">전체 뒤집기</button>
+    <span class="count" id="count"></span>
+  </div>
+</div>
+<main id="grid"></main>
+<dialog id="dlg"><div class="zoomwrap" id="zoom"></div><div class="row"><button class="btn" id="again">다시 뽑기</button><button class="btn alt" id="close">닫기</button></div></dialog>
+
+<script>
+const DATA = [{"code": "CV", "name": "검정", "items": [["overloaded", "감당하기 벅찬", "감당하기 벅찬, 과부하된"], ["insufficient", "부족하다고 느끼는", "부족하다고 느끼는"], ["egotistical", "자기중심적인", "자기중심적인, 자만하는"], ["inadequate", "자신이 부족하게 느껴지는", "자신이 부족하게 느껴지는"], ["falsely secure", "거짓된 안정감을 느끼는", "거짓된 안정감을 느끼는"], ["insecure", "불안한", "불안한, 자신감이 없는"], ["impulsively decisive", "충동적으로 결정을 내리는", "충동적으로 결정을 내리는"], ["indecisive", "결정을 내리지 못하는", "결정을 내리지 못하는, 망설이는"], ["unexpressive", "감정을 잘 드러내지 않는", "감정을 잘 드러내지 않는"], ["effusive", "감정을 지나치게 표현하는", "감정을 지나치게 표현하는, 감정이 넘치는"], ["vengeful", "복수심에 불타는", "복수심에 불타는"], ["remorseless", "양심의 가책을 느끼지 않는", "양심의 가책을 느끼지 않는, 무자비한"], ["spiteful", "앙심을 품은", "앙심을 품은, 악의적인"], ["careless", "부주의한", "부주의한, 무심한"], ["distrustful", "불신하는", "불신하는, 의심하는"], ["betrayed", "배신당한", "배신당한, 신뢰를 저버림당한"], ["apathetic", "무관심한", "무관심한, 무감각한"], ["furious", "격분한", "격분한, 몹시 화가 난"], ["timid", "소심한", "소심한, 겁이 많은"], ["boisterous", "요란한", "요란한, 지나치게 활발한"], ["pestered", "귀찮게 시달리는", "귀찮게 시달리는, 성가신"], ["oblivious", "눈치채지 못하는", "눈치채지 못하는, 알아차리지 못하는"], ["euphoric", "희열에 찬", "희열에 찬, 황홀한"], ["agitated", "동요하는", "동요하는, 초조하고 불안한"], ["procrastinating", "미루는", "미루는, 꾸물거리는"], ["rushed", "쫓기는", "쫓기는, 서두르는"], ["cruel", "잔인한", "잔인한, 잔혹한"], ["sadistic", "가학적인", "가학적인, 타인의 고통에서 쾌감을 느끼는"]]}, {"code": "GV", "name": "흰색", "items": [["overcompetitive", "지나치게 경쟁적인", "지나치게 경쟁적인, 승부욕이 과한"], ["forlorn", "쓸쓸한", "쓸쓸한, 버림받은 듯한"], ["aloof", "냉담한", "냉담한, 거리감을 두는"], ["empty", "공허한", "공허한, 텅 빈 듯한"], ["talkative", "말이 많은", "말이 많은, 수다스러운"], ["tongue-tied", "말문이 막힌", "말문이 막힌, 말이 잘 나오지 않는"], ["imposed upon", "부당하게 이용당하는", "부당하게 이용당하는, 부담을 강요받는"], ["abandoned", "버림받은", "버림받은, 외면당한"], ["belligerent", "호전적인", "호전적인, 싸우려 드는"], ["futile", "헛된", "헛된, 아무 소용이 없다고 느끼는"], ["selfish", "이기적인", "이기적인, 자기만 생각하는"], ["helpless", "무력한", "무력한, 어찌할 수 없는"], ["manipulative", "조종하려는", "조종하려는, 교묘하게 자기 뜻대로 하려는"], ["lonely", "외로운", "외로운, 고독한"], ["unloved", "사랑받지 못한다고 느끼는", "사랑받지 못한다고 느끼는"], ["haughty", "거만한", "거만한, 오만한"], ["powerless", "힘이 없는", "힘이 없는, 무기력한"], ["overbearing", "강압적인", "강압적인, 지나치게 지배하려는"], ["sour", "심기가 불편한", "심기가 불편한, 퉁명스러운"], ["bitter", "씁쓸한", "씁쓸한, 원망스러운"], ["envious", "부러워하는", "부러워하는, 질투하는"], ["greedy", "욕심이 많은", "욕심이 많은, 탐욕스러운"], ["unneeded", "필요하지 않은 존재처럼 느껴지는", "필요하지 않은 존재처럼 느껴지는"], ["despairing", "절망적인", "절망적인, 희망을 잃은"], ["defeated", "패배한", "패배한, 좌절한"], ["cornered", "궁지에 몰린", "궁지에 몰린, 꼼짝할 수 없는"], ["unable", "할 수 없다고 느끼는", "할 수 없다고 느끼는, 능력이 부족하다고 느끼는"], ["agitated", "동요하는 (반복)", "동요하는, 초조하고 불안한 (반복)"]]}, {"code": "ST", "name": "진한 노랑", "items": [["impatient", "조급한", "조급한, 참을성이 없는"], ["apathetic", "무관심한 (반복)", "무관심한, 무감각한 (반복)"], ["rebellious", "반항적인", "반항적인, 저항하는"], ["submissive", "순종적인", "순종적인, 지나치게 복종하는"], ["repulsed", "혐오감을 느끼는", "혐오감을 느끼는, 거부감이 드는"], ["gullible", "잘 속는", "잘 속는, 쉽게 믿는"], ["discontented", "불만족스러운", "불만족스러운, 마음에 차지 않는"], ["passive", "수동적인", "수동적인, 소극적인"], ["uneasy", "불안한", "불안한, 마음이 편치 않은"], ["apathetic", "무관심한", "무관심한, 의욕이 없는"], ["grouchy", "짜증이 많은", "짜증이 많은, 신경질적인"], ["condescending", "깔보는", "깔보는, 잘난 체하는"], ["unreliable", "믿음직스럽지 못한", "믿음직스럽지 못한, 신뢰하기 어려운"], ["stepped on", "무시당한", "무시당한, 짓밟힌 듯한"], ["refusal to leave comfort zone", "익숙한 환경에서 벗어나기를 거부하는", "익숙한 환경에서 벗어나기를 거부하는"], ["uncomfortable", "불편한", "불편한, 마음이 불편한"], ["nonchalant", "태연한", "태연한, 무심한"], ["worried", "걱정하는", "걱정하는, 염려하는"], ["undiscriminating", "분별력 없는", "분별력 없는, 가리지 않는"], ["unaccepting", "받아들이지 못하는", "받아들이지 못하는, 수용하지 않는"], ["over-appreciative", "지나치게 고마워하는", "지나치게 고마워하는, 과도하게 감사 표현을 하는"], ["resentful", "원망하는", "원망하는, 앙심을 품은"], ["back out of", "약속이나 결정을 번복하고 빠져나오는", "약속이나 결정을 번복하고 빠져나오는, 중도에 포기하는"], ["frightened", "겁먹은", "겁먹은, 두려운"], ["unconcerned", "개의치 않는", "개의치 않는, 무관심한"], ["upset", "속상한", "속상한, 마음이 상한, 화가 난"], ["undetermined", "결정되지 않은", "결정되지 않은, 확신이 없는"], ["disgusted", "역겨운", "역겨운, 혐오감을 느끼는"]]}, {"code": "SP", "name": "연한 노랑", "items": [["grief", "비통함", "비통함, 깊은 슬픔"], ["sorrow", "슬픔", "슬픔, 애통함"], ["rejected", "거부당한", "거부당한, 거절당한"], ["refused", "거절당한", "거절당한, 받아들여지지 않은"], ["pity", "연민", "연민, 동정심"], ["repenting", "후회하는", "후회하는, 회개하는"], ["intolerant", "참을성이 없는", "참을성이 없는, 관용이 부족한"], ["abused", "학대당한", "학대당한, 부당한 대우를 받은"], ["abusive", "학대하는", "학대하는, 폭언이나 폭력을 행사하는"], ["fidgety", "안절부절못하는", "안절부절못하는, 부산스러운"], ["violent", "폭력적인", "폭력적인, 공격적인"], ["flight", "도피", "도피, 회피, 달아나려는 반응"], ["arrogant", "거만한", "거만한, 오만한"], ["over-empathetic", "지나치게 공감하는", "지나치게 공감하는, 타인의 감정을 과도하게 받아들이는"], ["bloated", "더부룩한 (감정 아닌 신체적)", "더부룩한, 부풀어 오른 듯한 (감정 아닌 신체적)"], ["stuffed", "배가 꽉 찬 (감정 아닌 신체적)", "배가 꽉 찬, 포만감이 지나친 (감정 아닌 신체적)"], ["undeserving", "받을 자격이 없다고 느끼는", "받을 자격이 없다고 느끼는"], ["abhorrent", "혐오스러운", "혐오스러운, 몹시 역겨운"], ["cowering", "겁에 질려 움츠러든", "겁에 질려 움츠러든"], ["unaccepted", "받아들여지지 않은", "받아들여지지 않은, 인정받지 못한"], ["self-pity", "자기연민", "자기연민, 자신을 불쌍하게 여기는 마음"], ["martyr", "희생자", "희생자, 자신을 희생하는 사람"], ["turned away", "외면당한", "외면당한, 거절당한"], ["left out", "소외된", "소외된, 따돌림당한, 소속되지 못한"], ["setting oneself up for criticism", "스스로 비판받을 상황을 만드는", "스스로 비판받을 상황을 만드는"], ["seeking approval", "인정받고 싶어 하는", "인정받고 싶어 하는, 타인의 승인을 구하는"], ["rebuked", "꾸중을 들은", "꾸중을 들은, 질책당한"], ["elevated ego due to applause", "칭찬과 박수로 자만심이 높아진", "칭찬과 박수로 자만심이 높아진"]]}, {"code": "HT", "name": "진한 빨강", "items": [["egotistical", "자기중심적인", "자기중심적인, 이기적인"], ["insecure", "자신감이 부족한", "자신감이 부족한, 불안한"], ["infatuated", "누군가에게 푹 빠진", "누군가에게 푹 빠진, 열중한"], ["heartbroken", "마음이 무너진", "마음이 무너진, 가슴 아픈"], ["vindictive", "복수심이 강한", "복수심이 강한, 앙심을 품은"], ["passive", "수동적인", "수동적인, 소극적인"], ["know-it-all", "모든 것을 아는 체하는 사람", "모든 것을 아는 체하는 사람, 잘난 척하는"], ["forgetful", "잘 잊어버리는", "잘 잊어버리는, 건망증이 있는"], ["disgusted", "혐오감을 느끼는", "혐오감을 느끼는, 역겨워하는"], ["apathetic", "무관심한", "무관심한, 무감각한, 의욕이 없는"], ["bitter", "씁쓸한", "씁쓸한, 원망과 앙심이 남은"], ["forlorn", "쓸쓸한", "쓸쓸한, 버림받은 듯한, 절망적인"], ["martyred", "희생당한 듯한", "희생당한 듯한, 희생을 감수하는"], ["betrayed", "배신당한", "배신당한, 신뢰를 저버림당한"], ["unforgiving", "용서하지 못하는", "용서하지 못하는, 너그럽지 못한"], ["gullible", "잘 속는", "잘 속는, 남을 쉽게 믿는"], ["easily influenced", "영향을 쉽게 받는", "영향을 쉽게 받는, 주변에 쉽게 휩쓸리는"], ["narrow-minded", "편협한", "편협한, 마음이 좁은"], ["unexpressive", "감정 표현이 적은", "감정 표현이 적은, 속마음을 잘 드러내지 않는"], ["effusive", "감정을 풍부하게 표현하는", "감정을 풍부하게 표현하는, 감정 표현이 넘치는"], ["greedy", "욕심이 많은", "욕심이 많은, 탐욕스러운"], ["jealous", "질투하는", "질투하는, 시기하는"], ["nauseous", "메스꺼운", "메스꺼운, 속이 울렁거리는"], ["worried", "걱정하는", "걱정하는, 염려하는"], ["ignorant", "무지한", "무지한, 잘 알지 못하는"], ["arrogant", "거만한", "거만한, 오만한"], ["guilty", "죄책감을 느끼는", "죄책감을 느끼는, 죄책감이 드는"], ["manipulative", "조종하려는", "조종하려는, 교묘하게 타인을 자기 뜻대로 움직이려는"]]}, {"code": "SI", "name": "연한 빨강", "items": [["pushed", "압박받는", "압박받는, 떠밀리는"], ["cornered", "궁지에 몰린", "궁지에 몰린, 옴짝달싹 못 하는"], ["egotistical", "자기중심적인", "자기중심적인, 이기적인"], ["humiliated", "굴욕감을 느끼는", "굴욕감을 느끼는, 모욕당한"], ["obliged", "의무감을 느끼는", "의무감을 느끼는, 어쩔 수 없이 해야 하는"], ["guilty", "죄책감을 느끼는", "죄책감을 느끼는, 죄책감이 드는"], ["overconfident", "지나치게 자신만만한", "지나치게 자신만만한, 과신하는"], ["doubtful", "의심스러운", "의심스러운, 확신이 없는"], ["driven", "의욕이 강한", "의욕이 강한, 목표에 몰두하는"], ["weary", "지친", "지친, 녹초가 된"], ["conceited", "자만하는", "자만하는, 잘난 체하는"], ["downtrodden", "억압받는", "억압받는, 짓눌린, 의기소침한"], ["hoarding", "사재기하는", "사재기하는, 지나치게 쌓아두는"], ["stepped on", "무시당한", "무시당한, 짓밟힌"], ["needy", "정서적으로 의존적인", "정서적으로 의존적인, 관심과 애정이 필요한"], ["grabbing", "움켜쥐려는", "움켜쥐려는, 탐욕스럽게 가지려는"], ["irresponsible", "무책임한", "무책임한"], ["helpless", "무력한", "무력한, 속수무책인"], ["manipulated", "조종당한", "조종당한, 이용당한"], ["opportunistic", "기회주의적인", "기회주의적인, 자신의 이익을 위해 기회를 이용하는"], ["criticised", "비판받은", "비판받은, 질책당한"], ["paranoid", "피해망상적인", "피해망상적인, 지나치게 의심하는"], ["worthless", "무가치하다고 느끼는", "무가치하다고 느끼는, 쓸모없다고 여기는"], ["insignificant", "하찮게 느껴지는", "하찮게 느껴지는, 중요하지 않은 존재처럼 느껴지는"], ["doubtful", "의심하는", "의심하는, 자신이 없는"], ["assuming", "지레짐작하는", "지레짐작하는, 사실로 단정하는"], ["procrastinating", "일을 미루는", "일을 미루는, 꾸물거리는"], ["compelled", "강요당하는", "강요당하는, 어쩔 수 없이 하게 되는"]]}, {"code": "BL", "name": "진한 보라", "items": [["futile", "헛된", "헛된, 무익한"], ["frustrated", "좌절한", "좌절한, 답답한"], ["exhausted", "기진맥진한", "기진맥진한, 완전히 지친"], ["daydreaming", "공상하는", "공상하는, 딴생각하는"], ["plodding", "느릿느릿 걷는", "느릿느릿 걷는, 꾸준히 느리게 진행하는"], ["useless", "쓸모없는", "쓸모없는, 무용한"], ["flippant", "경솔한", "경솔한, 진지하지 못한"], ["discarded", "버려진", "버려진, 폐기된"], ["weighed down", "짓눌린", "짓눌린, 부담을 느끼는"], ["weary", "지친", "지친, 피곤한"], ["grieved", "슬퍼하는", "슬퍼하는, 비통해하는"], ["lost", "길을 잃은", "길을 잃은, 방황하는"], ["haughty", "거만한", "거만한, 오만한"], ["reclusive", "은둔하는", "은둔하는, 사람들과 어울리지 않는"], ["used", "이용당한", "이용당한"], ["aggressive", "공격적인", "공격적인, 호전적인"], ["sceptical", "회의적인", "회의적인, 의심하는"], ["accused", "비난받은", "비난받은, 혐의를 받은"], ["stifled", "억압된", "억압된, 숨 막히는"], ["purposeless", "목적이 없는", "목적이 없는, 무의미한"], ["smug", "자기만족적인", "자기만족적인, 우쭐한"], ["yearning", "갈망하는", "갈망하는, 열망하는"], ["jealous", "질투하는", "질투하는, 시기하는"], ["competitive", "경쟁적인", "경쟁적인"], ["foolish", "어리석은", "어리석은, 바보 같은"], ["depleted", "고갈된", "고갈된, 소진된"], ["suppressed", "억눌린", "억눌린, 억압된"], ["unappreciated", "인정받지 못한", "인정받지 못한, 가치를 알아주지 않는"]]}, {"code": "KD", "name": "연한 보라", "items": [["terror", "극심한 공포", "극심한 공포, 공황"], ["fear", "두려움", "두려움, 공포"], ["confused", "혼란스러운", "혼란스러운, 당황한"], ["misunderstood", "오해받은", "오해받은, 잘못 이해된"], ["forceful", "강압적인", "강압적인, 단호한"], ["giving up", "포기하는", "포기하는, 단념하는"], ["accusing", "비난하는", "비난하는, 혐의를 제기하는"], ["blaming", "탓하는", "탓하는, 책임을 전가하는"], ["deceitful", "기만적인", "기만적인, 속이는"], ["unjustified", "정당하지 않은", "정당하지 않은, 근거가 없는"], ["intolerant", "편협한", "편협한, 관용이 없는"], ["easily appeased", "쉽게 달래지는", "쉽게 달래지는, 쉽게 진정되는"], ["revolutionary", "혁명적인", "혁명적인, 기존 질서를 뒤엎는"], ["passive", "수동적인", "수동적인, 소극적인"], ["held back by others", "다른 사람들에 의해 제약받는", "다른 사람들에 의해 제약받는, 발목 잡히는"], ["self-restraint", "자기 절제", "자기 절제, 자제력"], ["timid", "소심한", "소심한, 겁이 많은"], ["ashamed", "부끄러운", "부끄러운, 수치심을 느끼는"], ["intimidated", "위축된", "위축된, 겁먹은"], ["pushy", "강압적인", "강압적인, 지나치게 밀어붙이는"], ["over-accommodating", "지나치게 맞춰주는", "지나치게 맞춰주는, 과도하게 배려하는"], ["stubborn", "고집스러운", "고집스러운, 완고한"], ["gullible", "잘 속는", "잘 속는, 남을 쉽게 믿는"], ["disbelieving", "믿지 않는", "믿지 않는, 의심하는"], ["following the crowd", "대세를 따르는", "대세를 따르는, 군중심리에 휩쓸리는"], ["going against intuition", "직관에 반하는", "직관에 반하는, 자신의 직감을 거스르는"], ["stoic", "감정을 드러내지 않는", "감정을 드러내지 않는, 초연한"], ["reactive", "반응적인", "반응적인, 즉각적으로 반응하는"]]}, {"code": "PC", "name": "진한 주황", "items": [["bull-headed", "고집 센", "고집 센, 완고한"], ["tied down", "속박된", "속박된, 자유롭지 못한"], ["breathless", "숨이 가쁜", "숨이 가쁜, 숨이 멎을 듯한"], ["insincere", "진실하지 않은", "진실하지 않은, 진정성이 없는"], ["choiceless", "선택권이 없는", "선택권이 없는, 선택의 여지가 없는"], ["purposeless", "목적이 없는", "목적이 없는, 무의미한"], ["squeezed", "압박받는", "압박받는, 짓눌린"], ["downtrodden", "억압받는", "억압받는, 짓밟힌"], ["surprised", "놀란", "놀란, 뜻밖이라고 느끼는"], ["in the dark", "상황을 모르는", "상황을 모르는, 정보를 알지 못하는"], ["sour", "시큰둥한", "시큰둥한, 불쾌한, 씁쓸한"], ["used", "이용당한", "이용당한"], ["starved", "굶주린", "굶주린, 결핍된"], ["melancholy", "우울한", "우울한, 쓸쓸한, 서글픈"], ["incapable", "무능한", "무능한, 능력이 부족한"], ["unapproved", "승인되지 않은", "승인되지 않은, 인정받지 못한"], ["bittersweet revenge", "씁쓸하면서도 통쾌한 복수", "씁쓸하면서도 통쾌한 복수"], ["futility", "헛됨", "헛됨, 무익함, 무의미함"], ["footloose / fancy-free", "자유로운", "자유로운, 속박 없이 홀가분한"], ["incomprehensible", "이해할 수 없는", "이해할 수 없는, 납득하기 어려운"], ["cornered", "궁지에 몰린", "궁지에 몰린, 옴짝달싹 못 하는"], ["unresolved", "해결되지 않은", "해결되지 않은, 미해결의"], ["despondent", "낙담한", "낙담한, 절망적인"], ["exasperated", "몹시 짜증 난", "몹시 짜증 난, 진저리 나는"], ["hostile", "적대적인", "적대적인, 적의를 품은"], ["hateful", "혐오스러운", "혐오스러운, 증오심에 찬"], ["indifferent", "무관심한", "무관심한, 무덤덤한"], ["deeply depressed", "깊은 우울감에 빠진", "깊은 우울감에 빠진, 심하게 우울한"]]}, {"code": "TH", "name": "연한 주황", "items": [["frigid", "냉담한", "냉담한, 차가운, 정서적으로 차가운"], ["thoughtless", "배려심 없는", "배려심 없는, 생각이 짧은"], ["horrified", "소름 끼치는", "소름 끼치는, 공포에 질린"], ["uneasy", "불안한", "불안한, 마음이 편치 않은"], ["jump to conclusions", "성급하게 결론을 내리는", "성급하게 결론을 내리는, 지레짐작하는"], ["indecisive", "우유부단한", "우유부단한, 결정을 내리지 못하는"], ["stubborn", "고집 센", "고집 센, 완고한"], ["insignificant", "하찮게 느껴지는", "하찮게 느껴지는, 중요하지 않은"], ["pulling hair out", "머리를 쥐어뜯을 만큼 답답한", "머리를 쥐어뜯을 만큼 답답한, 극도로 초조한"], ["disgusted", "역겨운", "역겨운, 혐오감을 느끼는"], ["over-eager", "지나치게 의욕적인", "지나치게 의욕적인, 너무 열성적인"], ["depleted", "기력이 고갈된", "기력이 고갈된, 에너지가 바닥난"], ["dishonoured", "모욕당한", "모욕당한, 명예를 훼손당한"], ["sorrowful", "슬픔에 잠긴", "슬픔에 잠긴, 비통한"], ["begrudging", "마지못해 하는", "마지못해 하는, 못마땅해하는, 시기하는"], ["unmerciful", "무자비한", "무자비한, 인정사정없는"], ["foolish", "어리석은", "어리석은, 분별없는"], ["over-reactive", "과민하게 반응하는", "과민하게 반응하는, 지나치게 예민한"], ["resentful", "억울함과 원망이 쌓인", "억울함과 원망이 쌓인, 분개하는"], ["unforgiving", "용서하지 못하는", "용서하지 못하는, 쉽게 용서하지 않는"], ["insecure", "불안정한", "불안정한, 자신감이 부족한, 확신이 없는"], ["undisciplined", "절제력이 부족한", "절제력이 부족한, 자기 관리가 안 되는"], ["imprisoned", "갇힌", "갇힌, 속박된, 자유롭지 못한"], ["gluttony", "탐식", "탐식, 과식, 지나친 식욕"], ["unsatisfied", "만족하지 못하는", "만족하지 못하는, 충족되지 않은"], ["exhausted", "기진맥진한", "기진맥진한, 완전히 지친"], ["unaffectionate", "애정 표현이 부족한", "애정 표현이 부족한, 다정하지 않은"], ["possessive", "소유욕이 강한", "소유욕이 강한, 독점하려는, 집착하는"]]}, {"code": "GB", "name": "연한 초록", "items": [["egotistical", "자기중심적인", "자기중심적인, 이기적인"], ["low self-esteem", "낮은 자존감", "낮은 자존감, 자기존중감 부족"], ["resentment", "분노", "분노, 원망, 억울함"], ["easily manipulated", "쉽게 조종당하는", "쉽게 조종당하는, 남에게 휘둘리는"], ["despised", "멸시받는", "멸시받는, 혐오받는"], ["nonchalant", "무관심한", "무관심한, 태연한, 무심한"], ["arrogant", "거만한", "거만한, 오만한"], ["flippant", "경솔한", "경솔한, 진지하지 못한"], ["immaculate", "흠잡을 데 없는", "흠잡을 데 없는, 매우 깔끔한"], ["sloppy", "단정하지 못한", "단정하지 못한, 엉성한, 부주의한"], ["all-consumed", "완전히 사로잡힌", "완전히 사로잡힌, 온통 몰두한"], ["empty", "공허한", "공허한, 텅 빈"], ["extroverted", "외향적인", "외향적인"], ["introverted", "내향적인", "내향적인"], ["spineless", "줏대 없는", "줏대 없는, 소신 없는, 나약한"], ["mean", "심술궂은", "심술궂은, 못된, 비열한"], ["timid", "소심한", "소심한, 겁이 많은, 수줍은"], ["arrogant", "거만한", "거만한, 오만한"], ["obliged", "의무감을 느끼는", "의무감을 느끼는, 어쩔 수 없이 해야 하는"], ["pushed", "압박받는", "압박받는, 강요당하는, 떠밀린"], ["fretful", "걱정이 많은", "걱정이 많은, 안절부절못하는"], ["intolerant", "편협한", "편협한, 참을성이 없는, 관용이 없는"], ["punished", "처벌받은", "처벌받은, 벌을 받은"], ["mean", "심술궂은", "심술궂은, 못된, 비열한"], ["uprooted", "뿌리 뽑힌", "뿌리 뽑힌, 정착지를 잃은, 삶의 터전을 잃은"], ["disrespectful", "무례한", "무례한, 존중하지 않는"], ["failure", "실패자", "실패자, 실패, 낙오감"], ["overconfident", "지나치게 자신만만한", "지나치게 자신만만한, 과도하게 자신감이 넘치는"]]}, {"code": "LV", "name": "진한 초록", "items": [["unadaptable", "적응하지 못하는", "적응하지 못하는, 융통성 없는"], ["unimportant", "중요하지 않은", "중요하지 않은, 하찮게 여겨지는"], ["morbid", "병적인", "병적인, 우울하고 음울한"], ["deserted", "버려진", "버려진, 외면당한, 홀로 남겨진"], ["destructive", "파괴적인", "파괴적인, 해로운"], ["annoyed", "짜증 나는", "짜증 나는, 성가신"], ["attacked", "공격받는", "공격받는, 비난받는"], ["disquieted", "불안한", "불안한, 마음이 편치 않은"], ["ruthless", "무자비한", "무자비한, 냉혹한"], ["pessimistic", "비관적인", "비관적인, 부정적으로 생각하는"], ["seething", "격분한", "격분한, 속에서 분노가 끓어오르는"], ["incomplete", "불완전한", "불완전한, 미완성의, 부족한"], ["daring", "대담한", "대담한, 용감한, 과감한"], ["unwelcome", "환영받지 못하는", "환영받지 못하는, 달갑지 않은"], ["vulnerable", "상처받기 쉬운", "상처받기 쉬운, 취약한, 무방비한"], ["disappointed", "실망한", "실망한, 낙담한"], ["defeated", "패배한", "패배한, 좌절한, 기가 꺾인"], ["incensed", "몹시 화가 난", "몹시 화가 난, 격분한"], ["unprotected", "보호받지 못하는", "보호받지 못하는, 무방비 상태의"], ["vindicated", "정당성을 인정받은", "정당성을 인정받은, 결백함이 밝혀진"], ["boisterous", "시끄럽고 활발한", "시끄럽고 활발한, 떠들썩한"], ["attacked", "공격받는", "공격받는, 비난받는"], ["unapproachable", "다가가기 어려운", "다가가기 어려운, 냉담한"], ["deprived", "빼앗긴", "빼앗긴, 결핍된, 박탈당한"], ["unreceptive", "받아들이지 않는", "받아들이지 않는, 수용적이지 않은"], ["threatened", "위협받는", "위협받는, 위협을 느끼는"], ["unreliable", "신뢰할 수 없는", "신뢰할 수 없는, 믿음직스럽지 못한"], ["rigid", "경직된", "경직된, 융통성 없는, 완고한"]]}, {"code": "LU", "name": "진한 파랑", "items": [["exhilarated", "매우 신이 난", "매우 신이 난, 황홀한, 흥분한"], ["overly modest", "지나치게 겸손한", "지나치게 겸손한, 자신을 과도하게 낮추는"], ["intense desire", "강렬한 욕망", "강렬한 욕망, 간절한 열망"], ["unsettled", "불안한", "불안한, 마음이 편치 않은, 동요하는"], ["suffocated", "숨 막히는", "숨 막히는, 억압받는, 답답한"], ["hampered", "방해받는", "방해받는, 제약받는, 발목 잡힌"], ["unfaithful", "신의를 저버린", "신의를 저버린, 불충실한, 배신한"], ["troubled", "괴로운", "괴로운, 걱정이 많은, 심란한"], ["bold", "대담한", "대담한, 용감한, 과감한"], ["leery", "경계하는", "경계하는, 의심스러운, 조심스러운"], ["over-disciplined", "지나치게 규율적인", "지나치게 규율적인, 자기 통제가 과도한"], ["speechless", "말문이 막힌", "말문이 막힌, 할 말을 잃은"], ["hurtful", "상처를 주는", "상처를 주는, 마음 아프게 하는"], ["unworthy", "가치가 없는", "가치가 없는, 자격이 없다고 느끼는"], ["questioned", "의심받는", "의심받는, 추궁당하는, 질문받는"], ["dead", "죽은", "죽은, 생기가 없는, 무기력한"], ["holier than thou", "자신이 남보다 도덕적으로 우월하다고 여기는", "자신이 남보다 도덕적으로 우월하다고 여기는, 위선적으로 잘난 체하는"], ["destructive", "파괴적인", "파괴적인, 해로운"], ["claustrophobic", "폐쇄공포증을 느끼는", "폐쇄공포증을 느끼는, 갇힌 듯 답답한"], ["trapped", "갇힌", "갇힌, 빠져나올 수 없는, 꼼짝 못 하는"], ["numb", "감각이 없는", "감각이 없는, 무감각한, 감정이 마비된"], ["sarcastic", "빈정대는", "빈정대는, 비꼬는, 냉소적인"], ["unnurtured", "보살핌을 받지 못한", "보살핌을 받지 못한, 정서적으로 돌봄이 부족한"], ["rejected", "거절당한", "거절당한, 거부당한, 외면받은"], ["mistrust", "불신", "불신, 불신감, 믿지 못함"], ["pushed", "압박받는", "압박받는, 떠밀리는, 강요당하는"], ["stagnant", "정체된", "정체된, 침체된, 발전이 없는"], ["arrogant", "거만한", "거만한, 오만한, 잘난 체하는"]]}, {"code": "LI", "name": "연한 파랑", "items": [["impossible", "불가능한", "불가능한, 도저히 해낼 수 없는"], ["uncooperative", "비협조적인", "비협조적인, 협조하지 않는"], ["sorrowful", "슬픈", "슬픈, 비통한, 애통한"], ["lack of attention", "관심 부족", "관심 부족, 주의력 부족, 관심을 받지 못하는"], ["euphoric", "매우 행복한", "매우 행복한, 황홀한, 들뜬"], ["inadequate", "부족한", "부족한, 불충분한, 자격이 없다고 느끼는"], ["disrespectful", "무례한", "무례한, 존중하지 않는"], ["submissive", "순종적인", "순종적인, 복종하는, 자기주장을 하지 못하는"], ["uprooted", "뿌리 뽑힌", "뿌리 뽑힌, 삶의 터전을 잃은, 소속감을 잃은"], ["sceptical", "회의적인", "회의적인, 의심하는, 쉽게 믿지 않는"], ["burdensome", "부담스러운", "부담스러운, 짐이 되는"], ["disinterested", "무관심한", "무관심한, 흥미가 없는"], ["wasteful", "낭비하는", "낭비하는, 비경제적인"], ["weary", "지친", "지친, 피곤한, 진력이 난"], ["bored", "지루한", "지루한, 따분한"], ["vindictive", "복수심에 찬", "복수심에 찬, 앙심을 품은"], ["unexpressive", "감정 표현이 적은", "감정 표현이 적은, 감정을 잘 드러내지 않는"], ["uncompassionate", "연민이 없는", "연민이 없는, 무자비한, 동정심이 부족한"], ["reclusive", "은둔하는", "은둔하는, 사람들과 어울리기를 꺼리는"], ["grief", "깊은 슬픔", "깊은 슬픔, 비탄, 애도"], ["offended", "기분이 상한", "기분이 상한, 모욕감을 느끼는"], ["bravado", "허세", "허세, 과시적인 용기, 두려움을 감추는 태도"], ["unmotivated", "의욕이 없는", "의욕이 없는, 동기부여가 되지 않는"], ["shattered", "산산이 부서진", "산산이 부서진, 큰 충격으로 무너진"], ["squeamish", "비위가 약한", "비위가 약한, 혐오감이나 불편함을 쉽게 느끼는"], ["envious", "부러워하는", "부러워하는, 질투하는"], ["desperate", "절박한", "절박한, 절망적인, 간절한"], ["greedy", "욕심 많은", "욕심 많은, 탐욕스러운"]]}];
+const MAP = {"overloaded": "overwhelmed", "rushed": "overwhelmed", "weighed down": "overwhelmed", "squeezed": "overwhelmed", "burdensome": "overwhelmed", "pulling hair out": "overwhelmed", "troubled": "overwhelmed", "impatient": "overwhelmed", "pestered": "overwhelmed", "agitated": "overwhelmed", "sorrow": "sad", "sorrowful": "sad", "melancholy": "sad", "forlorn": "sad", "despondent": "sad", "deeply depressed": "sad", "despairing": "sad", "morbid": "sad", "pessimistic": "sad", "repenting": "sad", "pity": "sad", "grief": "cry", "grieved": "cry", "heartbroken": "cry", "shattered": "cry", "lonely": "lonely", "empty": "lonely", "left out": "lonely", "abandoned": "lonely", "deserted": "lonely", "discarded": "lonely", "uprooted": "lonely", "unneeded": "lonely", "unwelcome": "lonely", "unloved": "lonely", "rejected": "lonely", "turned away": "lonely", "lost": "lonely", "reclusive": "lonely", "introverted": "lonely", "refused": "lonely", "unaccepted": "lonely", "unapproved": "lonely", "unappreciated": "lonely", "despised": "lonely", "deprived": "lonely", "unnurtured": "lonely", "lack of attention": "lonely", "starved": "lonely", "flight": "lonely", "furious": "angry", "seething": "angry", "incensed": "angry", "vengeful": "angry", "spiteful": "angry", "vindictive": "angry", "hateful": "angry", "hostile": "angry", "belligerent": "angry", "violent": "angry", "aggressive": "angry", "cruel": "angry", "sadistic": "angry", "exasperated": "angry", "destructive": "angry", "abusive": "angry", "ruthless": "angry", "unmerciful": "angry", "remorseless": "angry", "bittersweet revenge": "angry", "overbearing": "angry", "mean": "angry", "accusing": "angry", "blaming": "angry", "sour": "annoyed", "bitter": "annoyed", "grouchy": "annoyed", "annoyed": "annoyed", "resentful": "annoyed", "resentment": "annoyed", "unforgiving": "annoyed", "begrudging": "annoyed", "discontented": "annoyed", "sarcastic": "annoyed", "upset": "annoyed", "offended": "annoyed", "uncooperative": "annoyed", "impossible": "annoyed", "unreceptive": "annoyed", "unaccepting": "annoyed", "intolerant": "annoyed", "disrespectful": "annoyed", "unjustified": "annoyed", "terror": "fear", "fear": "fear", "frightened": "fear", "horrified": "fear", "cowering": "fear", "timid": "fear", "intimidated": "fear", "paranoid": "fear", "threatened": "fear", "vulnerable": "fear", "unprotected": "fear", "breathless": "fear", "attacked": "fear", "accused": "fear", "desperate": "fear", "insecure": "anxious", "uneasy": "anxious", "worried": "anxious", "fidgety": "anxious", "fretful": "anxious", "disquieted": "anxious", "unsettled": "anxious", "doubtful": "anxious", "leery": "anxious", "uncomfortable": "anxious", "distrustful": "anxious", "sceptical": "anxious", "indecisive": "anxious", "undetermined": "anxious", "unresolved": "anxious", "mistrust": "anxious", "questioned": "anxious", "assuming": "anxious", "jump to conclusions": "anxious", "impulsively decisive": "anxious", "incomplete": "anxious", "euphoric": "joy", "exhilarated": "joy", "effusive": "joy", "boisterous": "joy", "talkative": "joy", "footloose / fancy-free": "joy", "extroverted": "joy", "vindicated": "joy", "immaculate": "joy", "egotistical": "smug", "arrogant": "smug", "haughty": "smug", "conceited": "smug", "smug": "smug", "condescending": "smug", "holier than thou": "smug", "overconfident": "smug", "overcompetitive": "smug", "selfish": "smug", "falsely secure": "smug", "elevated ego due to applause": "smug", "bravado": "smug", "ignorant": "smug", "guilty": "shame", "ashamed": "shame", "humiliated": "shame", "dishonoured": "shame", "undeserving": "shame", "unworthy": "shame", "worthless": "shame", "insignificant": "shame", "unimportant": "shame", "inadequate": "shame", "insufficient": "shame", "overly modest": "shame", "punished": "shame", "rebuked": "shame", "criticised": "shame", "stepped on": "shame", "downtrodden": "shame", "setting oneself up for criticism": "shame", "failure": "shame", "incapable": "shame", "weary": "tired", "exhausted": "tired", "depleted": "tired", "stagnant": "tired", "daydreaming": "tired", "sloppy": "tired", "procrastinating": "tired", "plodding": "tired", "unmotivated": "tired", "bored": "tired", "wasteful": "tired", "undisciplined": "tired", "back out of": "tired", "apathetic": "numb", "indifferent": "numb", "nonchalant": "numb", "unconcerned": "numb", "disinterested": "numb", "numb": "numb", "dead": "numb", "unexpressive": "numb", "stoic": "numb", "aloof": "numb", "frigid": "numb", "unaffectionate": "numb", "careless": "numb", "thoughtless": "numb", "flippant": "numb", "oblivious": "numb", "passive": "numb", "uncompassionate": "numb", "unapproachable": "numb", "undiscriminating": "numb", "irresponsible": "numb", "confused": "confused", "incomprehensible": "confused", "in the dark": "confused", "misunderstood": "confused", "choiceless": "confused", "speechless": "confused", "going against intuition": "confused", "forgetful": "confused", "surprised": "surprise", "disgusted": "disgust", "repulsed": "disgust", "abhorrent": "disgust", "nauseous": "disgust", "squeamish": "disgust", "bloated": "disgust", "stuffed": "disgust", "gluttony": "disgust", "cornered": "trapped", "trapped": "trapped", "helpless": "trapped", "powerless": "trapped", "tied down": "trapped", "imprisoned": "trapped", "hampered": "trapped", "claustrophobic": "trapped", "suffocated": "trapped", "held back by others": "trapped", "pushed": "trapped", "obliged": "trapped", "compelled": "trapped", "suppressed": "trapped", "stifled": "trapped", "imposed upon": "trapped", "defeated": "defeated", "futile": "defeated", "futility": "defeated", "useless": "defeated", "purposeless": "defeated", "giving up": "defeated", "unable": "defeated", "manipulative": "sly", "deceitful": "sly", "opportunistic": "sly", "insincere": "sly", "unfaithful": "sly", "envious": "sly", "jealous": "sly", "greedy": "sly", "hoarding": "sly", "grabbing": "sly", "possessive": "sly", "needy": "sly", "unreliable": "sly", "disbelieving": "sly", "gullible": "submissive", "submissive": "submissive", "easily influenced": "submissive", "easily manipulated": "submissive", "following the crowd": "submissive", "spineless": "submissive", "seeking approval": "submissive", "martyr": "submissive", "martyred": "submissive", "used": "submissive", "manipulated": "submissive", "stubborn": "stubborn", "rigid": "stubborn", "unadaptable": "stubborn", "refusal to leave comfort zone": "stubborn", "forceful": "stubborn", "pushy": "stubborn", "rebellious": "stubborn", "revolutionary": "stubborn", "reactive": "stubborn", "driven": "determined", "bold": "determined", "daring": "determined", "competitive": "determined", "infatuated": "love", "yearning": "love", "intense desire": "love", "betrayed": "hurt", "hurtful": "hurt", "abused": "hurt", "frustrated": "frustrated", "disappointed": "frustrated", "unsatisfied": "frustrated", "all-consumed": "overwhelmed", "bull-headed": "stubborn", "know-it-all": "smug", "narrow-minded": "smug", "over-accommodating": "submissive", "over-appreciative": "submissive", "over-disciplined": "tired", "over-eager": "joy", "over-empathetic": "submissive", "over-reactive": "overwhelmed", "self-pity": "sad", "self-restraint": "numb", "low self-esteem": "anxious", "tongue-tied": "confused", "easily appeased": "submissive", "foolish": "confused"};
+/* 테두리: 그룹을 알아볼 수 있되 채도를 낮춘 색 */
+const COLORS = {CV:'#55514d',GV:'#fffdf8',ST:'#d8c27e',SP:'#f0e4ae',HT:'#bb7a74',SI:'#e6b0aa',BL:'#8f7baa',KD:'#c8b9de',PC:'#d6a07a',TH:'#ecc9a6',GB:'#b6d1aa',LV:'#82a68a',LU:'#7f93c0',LI:'#adcfe0'};
+
+/* ================= 감정 → 자연 속 에너지 그림 ================= */
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const CX=70, CY=86; let UID=0, RIM='#888'; const GOLD='#c9ad76';
+const n1=v=>Math.round(v*10)/10;
+function blob(r,cx,cy,rad,n,irr){
+  const pts=[];for(let i=0;i<n;i++){const a=i/n*6.2832+r()*.3,rr=rad*(1+(r()-.5)*2*irr);pts.push([cx+Math.cos(a)*rr,cy+Math.sin(a)*rr])}
+  const mid=(p,q)=>[(p[0]+q[0])/2,(p[1]+q[1])/2];let m=mid(pts[n-1],pts[0]);let d=`M${n1(m[0])} ${n1(m[1])}`;
+  for(let i=0;i<n;i++){const p=pts[i],q=mid(p,pts[(i+1)%n]);d+=`Q${n1(p[0])} ${n1(p[1])} ${n1(q[0])} ${n1(q[1])}`}return d+'Z';
+}
+function wash(r,f,cx,cy,rad,col,op,irr=.2,n=9,sx=1){
+  const d=blob(r,cx,cy,rad,n,irr);
+  const tf=sx!==1?` transform="translate(${cx} ${cy}) scale(${sx} 1) translate(${-cx} ${-cy})"`:'';
+  return `<g${tf} filter="url(#wc${f})"><path d="${d}" fill="${col}" opacity="${op}"/><path d="${d}" fill="none" stroke="${RIM}" stroke-width=".7" opacity=".2"/></g>`;
+}
+const L=(d,w,op,col,extra='')=>`<path d="${d}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" opacity="${op}" ${extra}/>`;
+const dot=(x,y,rad,col,op)=>`<circle cx="${n1(x)}" cy="${n1(y)}" r="${n1(rad)}" fill="${col}" opacity="${op}"/>`;
+const STAR='M0 -13 L1.5 -1.5 L13 0 L1.5 1.5 L0 13 L-1.5 1.5 L-13 0 L-1.5 -1.5Z';
+const star4=(x,y,s,col,op)=>`<path transform="translate(${x} ${y}) scale(${s})" d="${STAR}" fill="${col}" opacity="${op}"/>`;
+function spiral(cx,cy,a,turns,rot){let d='';for(let t=0;t<=turns*6.283;t+=.25){const rr=a*t;d+=(d?' L':'M')+n1(cx+Math.cos(t+rot)*rr*.9)+' '+n1(cy+Math.sin(t+rot)*rr)}return d}
+function feather(x,y,len,rot,col,op){
+  const w=len*.26;let s=`<g transform="translate(${x} ${y}) rotate(${rot})" opacity="${op}">`;
+  s+=`<path d="M0 0 C${n1(-w)} ${n1(-len*.3)} ${n1(-w*.8)} ${n1(-len*.8)} 0 ${-len} C${n1(w*.8)} ${n1(-len*.8)} ${n1(w)} ${n1(-len*.3)} 0 0Z" fill="${col}" fill-opacity=".16" stroke="${col}" stroke-width=".5"/><path d="M0 ${n1(len*.12)} L0 ${-len}" stroke="${col}" stroke-width=".6"/>`;
+  for(let k=1;k<=10;k++){const t=k/11,py=-len*t,bw=w*Math.sin(Math.PI*t*.95)*.9;s+=`<path d="M0 ${n1(py)} L${n1(-bw)} ${n1(py-len*.06)} M0 ${n1(py)} L${n1(bw)} ${n1(py-len*.06)}" stroke="${col}" stroke-width=".35" fill="none"/>`}
+  return s+'</g>';
+}
+function branch(x,y,len,rot,col,op,leaves=6){
+  let s=`<g transform="translate(${x} ${y}) rotate(${rot})" opacity="${op}" stroke="${col}" stroke-width=".6" stroke-linecap="round" fill="none"><path d="M0 0 Q${n1(len*.1)} ${n1(-len*.5)} 0 ${-len}"/>`;
+  for(let k=0;k<leaves;k++){const t=(k+1)/(leaves+1),py=-len*t,px=len*.1*Math.sin(Math.PI*t)*1.0,sd=k%2?1:-1;
+    s+=`<ellipse cx="${n1(px+sd*len*.11)}" cy="${n1(py-len*.03)}" rx="${n1(len*.11)}" ry="${n1(len*.04)}" transform="rotate(${-sd*28} ${n1(px)} ${n1(py)})" fill="${col}" fill-opacity=".14"/>`}
+  return s+'</g>';
+}
+const arch=(cx,base,w,h)=>`M${cx-w} ${base} V${base-h+w} A${w} ${w} 0 0 1 ${cx+w} ${base-h+w} V${base}`;
+
+/* 팔레트(채도 낮은 6색 계열): [색1, 색2, 밝은 중심, 선색] */
+const PAL={
+ calm:['#a9cdd3','#bccdb4','#f6efe2','#7fa4ad'], surprise:['#b3d3d8','#ead9a9','#fbf4e2','#8aaab2'],
+ overwhelmed:['#cdc4de','#e5c1bd','#d8d0c2','#9a90b4'], frustrated:['#e0bdb7','#cdc4de','#ddd3c6','#a98b87'],
+ sad:['#aecdd6','#cdc4de','#eef1ef','#7096a3'], cry:['#a5c8d2','#c5dde0','#f1f5f3','#6f95a2'],
+ lonely:['#dcd6e8','#eee9e0','#fbf6ea','#a79bc2'], angry:['#dcb0a6','#e5c9a3','#f7ead8','#b08278'],
+ annoyed:['#dccb9f','#bccdb4','#f5eedb','#948858'], fear:['#a9c3cd','#cdc4de','#f0f1f0','#7a95a2'],
+ anxious:['#cdc4de','#bccdb4','#f2eef4','#9a93b2'], joy:['#e8c6c0','#ecdcb0','#fbf3e2','#c4a768'],
+ smug:['#cdc4de','#e8d8ab','#f4eee6','#a395b8'], shame:['#e8c8c4','#d6cce0','#f8eeea','#b8979a'],
+ tired:['#d6cfe0','#d8d0c0','#f1ece4','#968ea2'], numb:['#d0cbc1','#dcdcd8','#f3f0ea','#a09b90'],
+ confused:['#a9cdd3','#e5c1bd','#f6efe2','#86a8ae'], disgust:['#b7c8a8','#cdb9c9','#e8e8d6','#86957a'],
+ trapped:['#a9c0ca','#bccdb4','#e8eef0','#7590a0'], defeated:['#b4abcc','#a9c0ca','#e4e1ee','#7a7494'],
+ sly:['#cdc4de','#a9cdd3','#eee6f0','#8a7ca4'], submissive:['#eed3ca','#d9d0e4','#fbf0e8','#bb978e'],
+ stubborn:['#cfc3ad','#bccdb4','#f2ebdf','#938468'], determined:['#bccdb4','#ead9a9','#f1f4e8','#86a082'],
+ love:['#e8c0bb','#ecd8b2','#fbf0e6','#c79792'], hurt:['#a9cdd3','#e5c1bd','#f8f0ec','#8499ab']
+};
+const G={};
+G.calm=(r,f,p)=>{let s='';for(let i=0;i<5;i++)s+=wash(r,f,CX,CY,56-i*10,i%2?p[1]:p[0],.32+i*.05,.1,10,.86);
+  s+=wash(r,f,CX,CY,14,p[2],.8,.1);
+  for(let i=1;i<=4;i++)s+=`<ellipse cx="${CX}" cy="${CY}" rx="${12+i*12}" ry="${14+i*14}" fill="none" stroke="${p[3]}" stroke-width=".4" opacity=".3"/>`;
+  if(r()<.5)s+=feather(CX+26,CY+36,32,28,p[3],.6);return s};
+G.surprise=(r,f,p)=>{let s=wash(r,f,CX,CY,34,p[1],.4,.2)+wash(r,f,CX,CY,22,p[0],.4,.2)+wash(r,f,CX,CY,10,p[2],.9,.1);
+  for(let i=0;i<14;i++){const a=i/14*6.283,r1=26,r2=r1+(i%2?10:22);s+=L(`M${n1(CX+Math.cos(a)*r1)} ${n1(CY+Math.sin(a)*r1)} L${n1(CX+Math.cos(a)*r2)} ${n1(CY+Math.sin(a)*r2)}`,.6,.7,GOLD)}
+  for(let i=0;i<10;i++){const a=r()*6.283,d=38+r()*20;s+=dot(CX+Math.cos(a)*d,CY+Math.sin(a)*d,.8+r()*1.2,GOLD,.7)}return s+star4(CX,CY,.9,'#fff',.9)};
+G.overwhelmed=(r,f,p)=>{let s='';for(let i=0;i<8;i++)s+=wash(r,f,CX+(r()-.5)*40,CY+(r()-.5)*50,16+r()*26,i%2?p[0]:p[1],.3,.18,9);s+=wash(r,f,CX,CY,18,p[2],.5,.2);
+  return s+branch(CX-30,CY+58,72,18+r()*10,p[3],.55,5)+branch(CX+28,CY+58,66,-22,p[3],.55,5)+branch(CX,CY+62,78,r()*12-6,p[3],.5,6)};
+G.frustrated=(r,f,p)=>{let s=wash(r,f,CX,CY,40,p[0],.4,.3)+wash(r,f,CX+8,CY+6,30,p[1],.35,.3)+wash(r,f,CX-6,CY-8,20,p[2],.6,.3);
+  for(let i=0;i<14;i++){const q=()=>[n1(CX+(r()-.5)*96),n1(CY+(r()-.5)*120)];const a=q(),b=q(),c=q(),d=q();s+=L(`M${a} C${b} ${c} ${d}`,.6,.5,p[3])}return s};
+function drop(x,y,col,rim){return `<path d="M${n1(x)} ${n1(y-5)} Q${n1(x+4)} ${n1(y+3)} ${n1(x)} ${n1(y+6)} Q${n1(x-4)} ${n1(y+3)} ${n1(x)} ${n1(y-5)}Z" fill="${col}" opacity=".6" stroke="${rim}" stroke-width=".4"/>`}
+G.sad=(r,f,p,cry)=>{let s=wash(r,f,CX,CY-24,36,p[1],.4,.2)+wash(r,f,CX,CY-30,22,p[0],.45,.2)+wash(r,f,CX,CY-32,10,p[2],.7,.15);
+  const n=cry?9:6;for(let i=0;i<n;i++){const x=CX-38+i*(76/(n-1))+(r()-.5)*5,y0=CY-8+r()*12,len=20+r()*(cry?42:30);s+=L(`M${n1(x)} ${n1(y0)} L${n1(x)} ${n1(y0+len)}`,.7,.4,p[3])+drop(x,y0+len+4,p[0],p[3])}
+  for(let i=1;i<=3;i++)s+=`<ellipse cx="${CX}" cy="${CY+58}" rx="${14+i*14}" ry="${3+i*3}" fill="none" stroke="${p[3]}" stroke-width=".5" opacity="${.5-i*.1}"/>`;
+  if(cry)s+=wash(r,f,CX,CY+58,30,p[1],.35,.15,9,1.8);return s};
+G.cry=(r,f,p)=>G.sad(r,f,p,true);
+G.lonely=(r,f,p)=>{let s=wash(r,f,CX,CY,56,p[0],.28,.15,10,.85)+wash(r,f,CX,CY,34,p[1],.35,.2);
+  const sd=r()<.5?-1:1,bx=CX+sd*(22+r()*8),by=CY-26-r()*8;
+  s+=`<circle cx="${n1(bx)}" cy="${n1(by)}" r="9" fill="#f4e6c4" opacity=".8" filter="url(#soft)"/>`+star4(n1(bx),n1(by),.8,'#fff',.95)+feather(CX-sd*20,CY+44,30,-sd*30+12,p[3],.6);
+  for(let i=0;i<10;i++)s+=dot(14+r()*112,14+r()*150,.5+r()*1,p[3],.18+r()*.25);return s};
+G.angry=(r,f,p)=>{let s=wash(r,f,CX,CY,34,p[1],.35,.25)+wash(r,f,CX,CY,22,p[0],.4,.25);const n=16;
+  for(let i=0;i<n;i++){const a=i/n*6.283+r()*.2,r1=20,r2=r1+14+r()*30,w=.15;
+    const x1=n1(CX+Math.cos(a-w)*r1),y1=n1(CY+Math.sin(a-w)*r1),x2=n1(CX+Math.cos(a)*r2),y2=n1(CY+Math.sin(a)*r2),x3=n1(CX+Math.cos(a+w)*r1),y3=n1(CY+Math.sin(a+w)*r1);
+    s+=`<path d="M${x1} ${y1} L${x2} ${y2} L${x3} ${y3}Z" fill="${i%2?p[0]:p[1]}" opacity=".32" stroke="${p[3]}" stroke-width=".5" stroke-opacity=".5" filter="url(#wc${f})"/>`}
+  return s};
+G.annoyed=(r,f,p)=>{let s=wash(r,f,CX,CY+6,44,p[1],.3,.25)+wash(r,f,CX-4,CY+10,30,p[0],.38,.25);
+  for(let k=0;k<20;k++){const x=24+k*4.9+(r()-.5)*3,y=CY+44,tx=x+(r()-.35)*22,ty=y-26-r()*34;s+=L(`M${n1(x)} ${y} Q${n1(x+(tx-x)*.2)} ${n1(y-(y-ty)*.6)} ${n1(tx)} ${n1(ty)}`,.6,.5,p[3])}return s};
+G.fear=(r,f,p)=>{let s=wash(r,f,CX,CY+8,36,p[0],.35,.25)+wash(r,f,CX,CY+10,22,p[1],.4,.25);
+  for(let i=0;i<3;i++){const w=18+i*13,h=62+i*16,j=n1((r()-.5)*3);s+=L(arch(CX+Number(j),CY+58,w,h),.8,.55-i*.1,p[3],'stroke-dasharray="3 4 8 3"')}
+  for(let i=0;i<6;i++)s+=dot(CX+(r()-.5)*70,CY+(r()-.5)*100,.6+r()*.9,p[3],.4);return s};
+G.anxious=(r,f,p)=>{let s=wash(r,f,CX,CY,40,p[1],.3,.25)+wash(r,f,CX+4,CY-4,26,p[0],.38,.28);
+  for(let i=0;i<6;i++)s+=`<ellipse cx="${n1(CX+(r()-.5)*10)}" cy="${n1(CY+(r()-.5)*10)}" rx="${n1(14+i*8+r()*4)}" ry="${n1(18+i*10+r()*4)}" transform="rotate(${n1((r()-.5)*24)} ${CX} ${CY})" fill="none" stroke="${p[3]}" stroke-width=".6" opacity="${(.5-i*.05).toFixed(2)}"/>`;
+  for(let i=0;i<12;i++)s+=dot(CX+(r()-.5)*104,CY+(r()-.5)*124,.6+r()*1.1,p[3],.32);return s};
+G.joy=(r,f,p)=>{let s='';for(let i=0;i<9;i++)s+=`<ellipse cx="${CX}" cy="${CY-24}" rx="11" ry="25" transform="rotate(${i*40} ${CX} ${CY})" fill="${i%2?p[1]:p[0]}" opacity=".34" stroke="${p[3]}" stroke-width=".4" stroke-opacity=".5" filter="url(#wc${f})"/>`;
+  s+=wash(r,f,CX,CY,13,p[2],.9,.1);for(let i=0;i<14;i++){const a=r()*6.283,d=48+r()*14;s+=dot(CX+Math.cos(a)*d,CY+Math.sin(a)*d,.8+r()*1.4,GOLD,.7)}return s+star4(CX,CY,.7,GOLD,.9)};
+G.smug=(r,f,p)=>{const A=arch(CX,CY+58,30,112);let s=wash(r,f,CX,CY,40,p[0],.28,.2)+`<path d="${A} Z" fill="${p[0]}" opacity=".4" filter="url(#wc${f})"/>`+`<path d="${arch(CX+2,CY+58,19,84)} Z" fill="${p[1]}" opacity=".42" filter="url(#wc${f})"/>`;
+  return s+L(A,.6,.6,p[3])+L(`M${CX} ${CY-52} V${CY-68}`,.6,.7,GOLD)};
+G.shame=(r,f,p)=>{const by=CY+22;let s=wash(r,f,CX,by,26,p[0],.35,.2)+wash(r,f,CX,by+2,14,p[2],.55,.2);
+  for(let i=0;i<7;i++)s+=`<ellipse cx="${CX}" cy="${by-17}" rx="8" ry="20" transform="rotate(${(i-3)*17} ${CX} ${by})" fill="${i%2?p[1]:p[0]}" opacity=".4" stroke="${p[3]}" stroke-width=".5" stroke-opacity=".5" filter="url(#wc${f})"/>`;
+  for(let i=0;i<8;i++)s+=dot(CX+(r()-.5)*70,CY-30+r()*40,.5+r()*.8,p[3],.25);return s};
+G.tired=(r,f,p)=>{let s='';for(let i=0;i<8;i++){const y=42+i*13+r()*3,a=5+r()*6;
+  s+=`<path d="M-5 ${n1(y)} q37 ${n1(-a)} 75 0 t75 0 V${n1(y+16)} H-5Z" fill="${i%2?p[0]:p[1]}" opacity="${(.22+i*.03).toFixed(2)}" filter="url(#wc${f})"/>`}
+  s+=wash(r,f,CX,CY,22,p[2],.55,.2);if(r()<.6)s+=feather(CX-10,CY+42,34,82,p[3],.55);return s};
+G.numb=(r,f,p)=>{let s=wash(r,f,CX,CY,44,p[0],.25,.1,10,1.15);for(let i=0;i<7;i++)s+=`<ellipse cx="${CX}" cy="${CY-33+i*11}" rx="${46-Math.abs(i-3)*5}" ry="3.4" fill="${i%2?p[0]:p[1]}" opacity=".32" stroke="${p[3]}" stroke-width=".35" stroke-opacity=".4"/>`;return s};
+G.confused=(r,f,p)=>{let s=wash(r,f,CX-14,CY-8,30,p[0],.38,.25)+wash(r,f,CX+16,CY+10,30,p[1],.38,.25);
+  return s+L(spiral(CX-14,CY-8,2.1,3.2,r()*6),.8,.55,p[3])+L(spiral(CX+16,CY+12,2.1,3.2,r()*6),.8,.55,p[3])+L(spiral(CX,CY,3.2,2.6,r()*6),.5,.35,p[0])};
+G.disgust=(r,f,p)=>{let s='';for(let i=0;i<6;i++)s+=wash(r,f,CX+(r()-.5)*40,CY+(r()-.5)*50,16+r()*20,i%2?p[0]:p[1],.32,.4,8);
+  s+=wash(r,f,CX,CY,14,p[2],.5,.3);for(let i=0;i<18;i++)s+=dot(CX+(r()-.5)*96,CY+(r()-.5)*120,.6+r()*1.2,p[3],.3);
+  for(let k=0;k<3;k++){const y=CY-28+k*28;s+=L(`M${CX-32} ${y} q8 -7 16 0 t16 0 t16 0 t16 0`,.7,.45,p[3])}return s};
+G.trapped=(r,f,p,uid)=>{const A=arch(CX,CY+58,40,118);let s=`<clipPath id="cl${uid}"><path d="${A} Z"/></clipPath>`+wash(r,f,CX,CY,34,p[0],.38,.2)+wash(r,f,CX,CY,16,p[2],.7,.2);
+  let g='';for(let i=-6;i<=6;i++){g+=L(`M${CX+i*11-60} ${CY-70} C${CX+i*11-20} ${CY-20} ${CX+i*11+20} ${CY+10} ${CX+i*11+60} ${CY+70}`,.6,.45,p[3])+L(`M${CX+i*11+60} ${CY-70} C${CX+i*11+20} ${CY-20} ${CX+i*11-20} ${CY+10} ${CX+i*11-60} ${CY+70}`,.6,.45,p[3])}
+  return s+`<g clip-path="url(#cl${uid})">${g}</g>`+L(A,.9,.6,p[3])};
+G.defeated=(r,f,p)=>{let s=wash(r,f,CX,CY+34,42,p[0],.38,.15,10,1.15)+wash(r,f,CX,CY+30,26,p[1],.35,.18)+wash(r,f,CX,CY-24,22,p[2],.5,.2);
+  const bz=t=>{const x0=CX,y0=32,x1=CX+44,y1=40,x2=CX+48,y2=84,x3=CX+22,y3=120,u=1-t;return[u*u*u*x0+3*u*u*t*x1+3*u*t*t*x2+t*t*t*x3,u*u*u*y0+3*u*u*t*y1+3*u*t*t*y2+t*t*t*y3]};
+  s+=L(`M${CX} 32 C${CX+44} 40 ${CX+48} 84 ${CX+22} 120`,.8,.6,p[3]);
+  for(let k=1;k<=6;k++){const [x,y]=bz(k/7);s+=`<ellipse cx="${n1(x-7)}" cy="${n1(y+4)}" rx="9" ry="3.4" transform="rotate(${n1(105+k*4)} ${n1(x)} ${n1(y)})" fill="${p[1]}" fill-opacity=".32" stroke="${p[3]}" stroke-width=".5" stroke-opacity=".6"/>`}
+  for(let i=0;i<5;i++)s+=dot(CX-26+r()*44,CY+22+r()*38,.7,p[3],.35);return s};
+G.sly=(r,f,p)=>{let s=wash(r,f,CX-10,CY+10,30,p[1],.3,.3)+wash(r,f,CX+14,CY-10,28,p[0],.32,.3);const o=n1((r()-.5)*14);
+  const d1=`M${28+o} 150 C70 125 14 92 70 78 S${114-o} 36 106 18`,d2=`M112 150 C70 125 126 92 70 78 S26 36 34 18`;
+  return s+`<path d="${d1}" fill="none" stroke="${p[0]}" stroke-width="11" stroke-linecap="round" opacity=".42" filter="url(#wc${f})"/><path d="${d2}" fill="none" stroke="${p[1]}" stroke-width="8" stroke-linecap="round" opacity=".4" filter="url(#wc${f})"/>`+L(d1,.6,.6,p[3])+L(d2,.6,.6,p[3])+dot(106,16,1.6,GOLD,.85)};
+G.submissive=(r,f,p)=>{let s='';for(let i=0;i<4;i++)s+=wash(r,f,CX-14+i*10,CY+(i-1.5)*8,30-i*5,i%2?p[1]:p[0],.38,.2);
+  s+=branch(CX-26,CY+60,70,26,p[3],.6,5)+branch(CX-2,CY+62,84,30,p[3],.6,6)+branch(CX+24,CY+60,60,24,p[3],.55,5)+feather(CX+22,CY-6,34,52,p[3],.6);return s};
+G.stubborn=(r,f,p)=>{let s=wash(r,f,CX,CY+10,48,p[1],.22,.15,10,1.05);
+  const st=[[CX,CY+32,34,18,p[0]],[CX+2,CY+10,26,15,p[1]],[CX-1,CY-9,17,12,p[0]]];
+  st.forEach(([x,y,rx,ry,c])=>{s+=`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${c}" opacity=".5" filter="url(#wc${f})"/><ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="none" stroke="${p[3]}" stroke-width=".5" opacity=".45"/>`});
+  return s+`<circle cx="${CX}" cy="${CY-34}" r="2" fill="${GOLD}" opacity=".8"/>`};
+G.determined=(r,f,p)=>{let s=wash(r,f,CX,CY+22,34,p[0],.35,.15,10,.8)+wash(r,f,CX,CY-34,18,p[1],.5,.15)+branch(CX,CY+66,106,0,p[3],.7,8);
+  for(let i=0;i<7;i++){const x=CX+(i-3)*8;s+=L(`M${x} ${CY+60} Q${n1(x*.5+CX*.5)} ${CY} ${n1(CX+(i-3)*1.5)} ${CY-48}`,.4,.25,p[3])}return s+`<circle cx="${CX}" cy="${CY-50}" r="6" fill="#f1deb0" opacity=".8" filter="url(#soft)"/>`+dot(CX,CY-50,1.8,GOLD,.95)};
+G.love=(r,f,p)=>{let s=wash(r,f,CX-12,CY,28,p[0],.36,.12,10)+wash(r,f,CX+12,CY,28,p[0],.36,.12,10)+wash(r,f,CX,CY,16,p[1],.5,.15)+wash(r,f,CX,CY,8,p[2],.9,.1);
+  s+=`<ellipse cx="${CX}" cy="${CY}" rx="22" ry="26" fill="none" stroke="${GOLD}" stroke-width=".5" opacity=".7"/>`;
+  for(let i=0;i<10;i++){const a=r()*6.283,d=44+r()*14,x=CX+Math.cos(a)*d,y=CY+Math.sin(a)*d;s+=`<ellipse cx="${n1(x)}" cy="${n1(y)}" rx="3.2" ry="1.7" transform="rotate(${n1(a*57)} ${n1(x)} ${n1(y)})" fill="${p[0]}" opacity=".6"/>`}return s};
+G.hurt=(r,f,p)=>{let s=wash(r,f,CX-6,CY,38,p[0],.4,.15,10)+wash(r,f,CX+8,CY+4,34,p[1],.36,.15,10);
+  let x=CX+4,y=CY-48,d=`M${x} ${y}`;while(y<CY+52){x+=(r()-.5)*18;y+=9+r()*9;d+=` L${n1(x)} ${n1(y)}`}
+  s+=L(d,3.5,.3,'#fff')+L(d,.9,.95,GOLD);for(let i=0;i<7;i++)s+=dot(CX+(r()-.5)*34,CY+(r()-.5)*90,.6+r()*.9,GOLD,.8);return s};
+
+function energy(word,code){
+  const key=G[MAP[word]]?MAP[word]:'calm';const h=hash(word+code),r=mulberry(h),f=h%4,p=PAL[key],hue=((h>>>7)%13)-6,uid=++UID;
+  RIM=p[3]; const body=G[key](r,f,p,uid);
+  return `<svg viewBox="0 0 140 180" preserveAspectRatio="xMidYMid slice" style="filter:hue-rotate(${hue}deg)" aria-hidden="true">
+   <g transform="translate(70 66) scale(.7) translate(-70 -86)">${body}</g>
+   <rect width="140" height="180" fill="url(#vig)"/></svg>`;
+}
+
+/* ================= 설명 · 질문 ================= */
+const DESC={
+ calm:'마음이 고요하고 안정된 상태예요. 물결이 잔잔해지듯 숨이 깊어지고 있어요.',
+ surprise:'예상하지 못한 순간이 마음을 환하게 깨웠어요. 잠시 멈춰서 그 빛을 바라봐도 괜찮아요.',
+ overwhelmed:'한꺼번에 많은 것이 겹쳐 마음이 무겁게 느껴질 수 있어요. 지금은 하나씩 내려놓아도 괜찮아요.',
+ frustrated:'풀리지 않는 실타래처럼 마음이 얽혀 있는 순간이에요. 그만큼 바라는 것이 있다는 뜻일 수 있어요.',
+ sad:'마음 깊은 곳에 물이 고이듯 슬픔이 머물고 있어요. 흐르도록 허락해도 괜찮아요.',
+ cry:'오래 머문 마음이 물처럼 흘러나오고 있어요. 흘려보내는 것도 돌봄의 한 방법이에요.',
+ lonely:'넓은 고요 속에 홀로 서 있는 듯한 마음이에요. 이 느낌도 나의 일부로 곁에 둘 수 있어요.',
+ angry:'마음의 경계가 거세게 일어나는 순간이에요. 그 에너지는 지키고 싶은 무언가를 알려 주기도 해요.',
+ annoyed:'마음결이 거칠게 스치는 느낌이 있어요. 바람을 맞듯 그 감각을 가만히 알아차려 보세요.',
+ fear:'마음이 조심스럽게 움츠러드는 순간이에요. 안전하다고 느낄 때까지 천천히 숨을 내쉬어도 좋아요.',
+ anxious:'마음이 잔잔히 떨리며 다음을 헤아리고 있어요. 지금 이 자리의 숨으로 돌아와 봐도 괜찮아요.',
+ joy:'마음에 꽃이 피어나듯 환한 기운이 퍼지고 있어요. 그 따뜻함을 충분히 누려도 좋아요.',
+ smug:'마음이 높이 솟아 스스로를 단단히 느끼는 순간이에요. 그 힘을 부드럽게 바라봐도 괜찮아요.',
+ shame:'마음이 작게 오므라들며 숨고 싶은 순간이에요. 있는 그대로 안전하게 머물러도 괜찮아요.',
+ tired:'마음의 물결이 느리게 가라앉고 있어요. 쉼이 필요하다고 몸이 말을 걸고 있는지도 몰라요.',
+ numb:'잔잔한 연못처럼 감정이 멀게 느껴지는 순간이에요. 느끼지 못하는 것도 하나의 쉼일 수 있어요.',
+ confused:'마음이 소용돌이처럼 맴돌며 길을 찾고 있어요. 답을 서두르지 않아도 괜찮아요.',
+ disgust:'마음이 무언가를 밀어내고 싶어 하는 순간이에요. 그 거리감도 나를 지키는 방식일 수 있어요.',
+ trapped:'마음이 덩굴에 감긴 듯 움직이기 어려운 순간이에요. 숨 쉴 틈 하나를 먼저 만들어 봐도 좋아요.',
+ defeated:'마음이 아래로 가라앉아 힘이 빠진 순간이에요. 땅에 닿아 쉬는 것도 다시 오르는 길의 일부예요.',
+ sly:'마음이 이리저리 길을 내며 흐르고 있어요. 그 영리함 속에 원하는 것이 숨어 있을지도 몰라요.',
+ submissive:'바람에 몸을 맡긴 잎처럼 마음이 부드럽게 기울고 있어요. 나의 방향도 함께 느껴 보아도 좋아요.',
+ stubborn:'마음이 단단한 돌처럼 자리를 지키고 있어요. 그 단단함이 지키려는 것을 살펴봐도 괜찮아요.',
+ determined:'마음이 하늘을 향해 곧게 자라는 순간이에요. 속도보다 뿌리의 숨을 함께 느껴 보세요.',
+ love:'마음이 따뜻한 빛으로 번져 가는 순간이에요. 그 온기를 나에게도 나누어 주세요.',
+ hurt:'마음에 가는 금이 간 듯한 순간이에요. 금 사이로 스며드는 빛도 함께 바라볼 수 있어요.'
+};
+const QS={
+ calm:['지금 이 평온은 몸의 어디에서 가장 잘 느껴지나요?','이 고요함을 더 깊이 느끼려면 무엇이 필요할까요?','숨이 닿는 곳마다 어떤 감각이 있나요?'],
+ surprise:['놀람이 지나간 자리, 몸 어디에 여운이 남아 있나요?','이 순간이 나에게 알려 주고 싶은 것은 무엇일까요?','지금 나의 호흡은 어떤 리듬인가요?'],
+ overwhelmed:['지금 가장 무겁게 느껴지는 곳은 몸의 어디인가요?','오늘 하나만 내려놓을 수 있다면 무엇일까요?','잠시 쉬어 간다면 나에게 가장 필요한 것은 무엇일까요?'],
+ frustrated:['얽힌 느낌은 몸의 어디에 가장 가깝나요?','이 답답함 뒤에 내가 간절히 바라는 것은 무엇일까요?','한 가닥만 풀 수 있다면 어디부터 시작하고 싶나요?'],
+ sad:['이 슬픔은 몸의 어디에 머물러 있나요?','지금 나에게 건네고 싶은 따뜻한 말은 무엇인가요?','슬픔이 흐를 수 있도록 내가 허락할 수 있는 것은 무엇일까요?'],
+ cry:['눈물이 닿고 싶어 하는 곳은 몸의 어디일까요?','충분히 울고 난 뒤 나는 무엇을 느끼고 싶나요?','지금 나를 안아 준다면 어떤 방식이 좋을까요?'],
+ lonely:['이 외로움은 몸의 어디에서 느껴지나요?','곁에 있어 주었으면 하는 따뜻함은 어떤 모습인가요?','나는 나에게 어떤 다정함을 건넬 수 있을까요?'],
+ angry:['이 뜨거움은 몸의 어디에 모여 있나요?','이 감정이 지키려는 나의 소중한 것은 무엇인가요?','에너지를 안전하게 흘려보낼 방법은 무엇일까요?'],
+ annoyed:['거슬림은 몸의 어디에서 먼저 느껴지나요?','지금 나에게 필요한 거리나 쉼은 무엇인가요?','이 감각 아래에 숨은 마음은 무엇일까요?'],
+ fear:['두려움은 몸의 어디를 가장 단단하게 하나요?','지금 내가 안전하다고 느끼려면 무엇이 필요할까요?','숨을 길게 내쉬면 어떤 변화가 있나요?'],
+ anxious:['불안은 몸의 어디에서 떨리고 있나요?','지금 이 순간, 내가 분명히 알고 있는 것은 무엇인가요?','발이 바닥에 닿는 감각을 느끼면 무엇이 달라지나요?'],
+ joy:['이 환한 기운은 몸의 어디에서 퍼지고 있나요?','이 기쁨을 나누고 싶은 사람이나 순간이 있나요?','이 따뜻함을 오래 기억하려면 무엇을 해 볼까요?'],
+ smug:['이 단단한 느낌은 몸의 어디에서 올라오나요?','이 마음 아래에 지키고 싶은 것은 무엇일까요?','한 걸음 내려와 바라본다면 무엇이 보이나요?'],
+ shame:['움츠러드는 느낌은 몸의 어디에 있나요?','지금 나에게 안전하다고 말해 준다면 어떤 말일까요?','있는 그대로의 나를 바라보는 따뜻한 눈은 어떤 모습인가요?'],
+ tired:['피로는 몸의 어디에 가장 깊이 머물러 있나요?','지금 나를 쉬게 해 줄 가장 작은 것은 무엇인가요?','쉬어도 괜찮다고 스스로에게 허락해 볼 수 있을까요?'],
+ numb:['감정이 멀게 느껴질 때 몸은 어떤 상태인가요?','가장 작은 감각 하나, 지금 느껴지는 것은 무엇인가요?','이 고요함은 나에게 무엇을 말해 주고 있나요?'],
+ confused:['혼란은 몸의 어디에서 맴돌고 있나요?','지금 당장 답하지 않아도 되는 질문은 무엇일까요?','나를 안정시키는 단 하나의 것은 무엇인가요?'],
+ disgust:['밀어내고 싶은 느낌은 몸의 어디에 있나요?','내가 지키고 싶은 경계는 무엇인가요?','적당한 거리를 둔다면 어떤 모습일까요?'],
+ trapped:['꽉 조여 오는 느낌은 몸의 어디에 있나요?','숨 쉴 틈을 하나 만든다면 무엇일까요?','지금 내가 선택할 수 있는 작은 것은 무엇인가요?'],
+ defeated:['힘이 빠지는 느낌은 몸의 어디에서 가장 크게 느껴지나요?','지금 나를 받쳐 주는 것은 무엇인가요?','오늘 나에게 건넬 수 있는 가장 부드러운 한마디는 무엇일까요?'],
+ sly:['이 마음은 몸의 어디에서 움직이고 있나요?','내가 진짜 원하는 것은 무엇일까요?','솔직하게 말한다면 나는 무엇이라고 할까요?'],
+ submissive:['맞추려는 마음은 몸의 어디에서 느껴지나요?','나의 방향은 지금 어느 쪽을 가리키고 있나요?','내가 원하는 것을 작게라도 말해 본다면 무엇일까요?'],
+ stubborn:['단단함은 몸의 어디에 자리하고 있나요?','이 단단함이 지키려는 것은 무엇인가요?','힘을 조금 풀어도 안전하다고 느낄 수 있는 곳은 어디인가요?'],
+ determined:['이 곧은 에너지는 몸의 어디에서 시작되나요?','이 마음이 향하는 곳은 어디인가요?','나의 속도를 존중하며 내딛는 첫걸음은 무엇일까요?'],
+ love:['따뜻함은 몸의 어디에서 번지고 있나요?','이 온기를 나에게도 나누어 준다면 어떤 모습일까요?','지금 내가 소중히 하고 싶은 것은 무엇인가요?'],
+ hurt:['아픈 느낌은 몸의 어디에 머무나요?','지금 나에게 필요한 돌봄은 무엇인가요?','금 사이로 스며드는 빛이 있다면 그것은 무엇일까요?']
+};
+
+/* ================= 카드 만들기 ================= */
+function koSize(t){const n=t.replace(/\s/g,'').length;return n<=3?27:n<=5?24:n<=8?21:n<=11?18:n<=15?15.5:14}
+const cleanEn=e=>e.replace(/\s*\(.*\)$/,'');
+const starSVG=`<svg viewBox="-14 -14 28 28"><path d="${STAR}" fill="url(#gold)"/></svg>`;
+const sprigSVG=`<svg viewBox="0 0 70 38" fill="none" stroke="#c6a46a" stroke-width=".7" stroke-linecap="round"><path d="M6 34 Q34 28 62 6"/><g fill="#c6a46a" fill-opacity=".18"><ellipse cx="20" cy="27" rx="7" ry="2.6" transform="rotate(-38 20 27)"/><ellipse cx="28" cy="31" rx="7" ry="2.6" transform="rotate(30 28 31)"/><ellipse cx="38" cy="21" rx="7" ry="2.6" transform="rotate(-48 38 21)"/><ellipse cx="46" cy="26" rx="6.5" ry="2.4" transform="rotate(26 46 26)"/><ellipse cx="54" cy="12" rx="6" ry="2.2" transform="rotate(-55 54 12)"/></g></svg>`;
+function cardEl(code,name,idx,it){
+  const [en,sk,fk]=it, word=cleanEn(en);
+  const key=G[MAP[word]]?MAP[word]:'calm', h=hash(word+code);
+  const desc=DESC[key], q=QS[key][h%3];
+  const el=document.createElement('button');
+  el.type='button'; el.className='card'+(code==='GV'?' white':'');
+  el.style.setProperty('--c',COLORS[code]);
+  el.dataset.code=code; el.dataset.word=word;
+  el.dataset.search=(word+' '+fk+' '+sk).toLowerCase();
+  el.setAttribute('aria-label',`${sk} (${word}) 카드, 누르면 뒤집힘`);
+  const no=`${code} · ${String(idx).padStart(2,'0')}`;
+  el.innerHTML=`<div class="inner">
+   <div class="face front"><div class="art"></div><div class="topstar">${starSVG}</div>
+     <div class="txt"><div class="ko" style="font-size:${koSize(sk)}px">${sk}</div><div class="en">${en}</div></div>
+     <div class="num">${no}</div></div>
+   <div class="face back"><div class="bstar">${starSVG}</div>
+     <div class="bcont"><div class="en2">${en}</div><div class="mean">${fk}</div><div class="desc">${desc}</div><div class="rule"></div><div class="lab">탐색 질문</div><div class="q">${q}</div></div>
+     <div class="bsprig">${sprigSVG}</div><div class="num">${no}</div></div>
+  </div>`;
+  el.addEventListener('click',()=>el.classList.toggle('flip'));
+  return el;
+}
+function ensureArt(c){const a=c.querySelector('.art');if(a.dataset.done)return;a.dataset.done=1;a.innerHTML=energy(c.dataset.word,c.dataset.code)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){ensureArt(e.target);io.unobserve(e.target)}}),{rootMargin:'700px'});
+const grid=document.getElementById('grid'), chips=document.getElementById('chips');
+let active=new Set(DATA.map(d=>d.code));
+DATA.forEach(d=>{
+  const t=document.createElement('div'); t.className='sectionTitle'; t.dataset.code=d.code;
+  t.innerHTML=`<i style="background:${COLORS[d.code]}"></i>${d.code} <small>${d.name} · ${d.items.length}장</small>`;
+  grid.appendChild(t);
+  d.items.forEach((it,i)=>{const c=cardEl(d.code,d.name,i+1,it);grid.appendChild(c);io.observe(c)});
+  const b=document.createElement('button'); b.className='chip'; b.setAttribute('aria-pressed','true'); b.dataset.code=d.code;
+  b.innerHTML=`<i style="background:${COLORS[d.code]}"></i>${d.code} ${d.name}`;
+  b.onclick=()=>{ if(active.has(d.code)){active.delete(d.code)}else{active.add(d.code)}; apply(); };
+  chips.appendChild(b);
+});
+const all=document.createElement('button'); all.className='chip'; all.textContent='전체 선택/해제';
+all.onclick=()=>{ active = active.size===DATA.length ? new Set() : new Set(DATA.map(d=>d.code)); apply(); };
+chips.prepend(all);
+const qEl=document.getElementById('q'), cnt=document.getElementById('count');
+function apply(){
+  const q=qEl.value.trim().toLowerCase(); let n=0; const vis={};
+  grid.querySelectorAll('.card').forEach(c=>{
+    const show=active.has(c.dataset.code)&&(!q||c.dataset.search.includes(q));
+    c.style.display=show?'':'none'; if(show){n++;vis[c.dataset.code]=1}
+  });
+  grid.querySelectorAll('.sectionTitle').forEach(t=>t.style.display=vis[t.dataset.code]?'':'none');
+  chips.querySelectorAll('.chip[data-code]').forEach(b=>b.setAttribute('aria-pressed',active.has(b.dataset.code)));
+  cnt.textContent=n+'장 보는 중';
+  let e=document.getElementById('empty');
+  if(!n){ if(!e){e=document.createElement('div');e.id='empty';e.className='empty';e.textContent='찾는 카드가 없어요. 다른 말로 검색해 보세요.';grid.appendChild(e)} } else if(e) e.remove();
+}
+qEl.addEventListener('input',apply);
+let flipped=false;
+document.getElementById('allFlip').onclick=()=>{flipped=!flipped;grid.querySelectorAll('.card').forEach(c=>c.classList.toggle('flip',flipped))};
+const dlg=document.getElementById('dlg'), zoom=document.getElementById('zoom');
+function draw(){
+  const pool=[...grid.querySelectorAll('.card')].filter(c=>c.style.display!=='none');
+  if(!pool.length) return;
+  const src=pool[Math.floor(Math.random()*pool.length)]; ensureArt(src);
+  const clone=src.cloneNode(true); clone.classList.remove('flip');
+  clone.addEventListener('click',()=>clone.classList.toggle('flip'));
+  zoom.replaceChildren(clone);
+  if(!dlg.open){ try{dlg.showModal()}catch(e){dlg.setAttribute('open','')} }
+}
+document.getElementById('rand').onclick=draw;
+document.getElementById('again').onclick=draw;
+document.getElementById('close').onclick=()=>{try{dlg.close()}catch(e){dlg.removeAttribute('open')}};
+window.addEventListener('beforeprint',()=>grid.querySelectorAll('.card').forEach(ensureArt));
+apply();
+</script>
+</body>
+</html>

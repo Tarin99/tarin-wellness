@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards | TARIN WELLNESS</title>
+<meta name="description" content="392장의 감정 탐색 카드. 카드를 뽑고 뒤집어 지금의 감정을 알아차리는 질문을 만나 보세요.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .cards-frame { width: 100%; height: min(86vh, 920px); min-height: 560px; border: 1px solid rgba(61,107,99,.2); border-radius: 28px; background: #f4efe6; box-shadow: 0 14px 40px rgba(61,107,99,.1); display: block; }
+  .cards-help { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 0 0 20px; padding: 0; list-style: none; color: var(--muted); font-size: .92rem; }
+  .cards-help li::before { content: "·"; margin-right: 8px; color: var(--deep); }
+</style>
+</head>
+<body data-page="cards.html">
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap"><p class="eyebrow">Cards</p><h1>감정 탐색 카드 392</h1>
+    <p class="lead">지금 내 마음에 가까운 말을 골라 보세요. 카드를 뒤집으면 설명과 함께 스스로에게 건네는 탐색 질문이 나와요.</p></div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="wrap">
+      <ul class="cards-help">
+        <li>카드를 누르면 뒤집혀요</li>
+        <li>"랜덤 카드 뽑기"로 오늘의 카드를 만나요</li>
+        <li>색 버튼으로 14개 그룹을 골라 볼 수 있어요</li>
+        <li>한글이나 영어로 검색할 수 있어요</li>
+      </ul>
+      <iframe class="cards-frame" src="assets/emotion-cards.html" title="TARIN WELLNESS 감정 탐색 카드 392" loading="lazy"></iframe>
+      <p class="notice tight">이 카드는 감정을 알아차리는 연습을 돕는 웰니스 교육 도구예요. 의료적 진단이나 치료를 대신하지 않아요. 힘든 마음이 계속된다면 전문가와 상담해 주세요.</p>
+    </div>
+  </section>
+
+</main>
+<script src="main.js"></script>
+</body>
+</html>
